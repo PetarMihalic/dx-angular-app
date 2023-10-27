@@ -52,7 +52,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "src/dx-styles.scss",
+              "src/styles.scss",
+              { "input": "src/themes/generated/theme.additional.dark.css", "bundleName": "dx.theme.material.additional.dark" },
+              { "input": "src/themes/generated/theme.additional.light.css", "bundleName": "dx.theme.material.additional.light" },
+              { "input": "src/themes/generated/theme.base.css", "bundleName": "dx.theme.material.orange.light" },
+              { "input": "node_modules/devextreme/dist/css/dx.material.blue.light.css", "bundleName": "dx.theme.material.blue.light" },
+              { "input": "node_modules/devextreme/dist/css/dx.material.blue.dark.css", "bundleName": "dx.theme.material.blue.dark" },
+              { "input": "node_modules/devextreme/dist/css/dx.material.orange.dark.css", "bundleName": "dx.theme.material.orange.dark" }
             ],
             "scripts": []
           },
@@ -61,8 +69,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "7mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -122,5 +130,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

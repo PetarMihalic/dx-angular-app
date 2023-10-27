@@ -1,0 +1,66 @@
+<h2 class="content-block">Accounts</h2>
+<div class="content-block">
+    <div class="dx-card responsive-paddings">
+        <dx-data-grid
+            [dataSource]="dataSource"
+            [remoteOperations]="true"
+            [width]="'100%'"
+            [height]="600"
+            [showBorders]="true"
+        >
+        <dxo-editing
+            mode="form"
+            [allowAdding]="true"
+            [allowUpdating]="true"
+            [allowDeleting]="true"
+        >
+        </dxo-editing>
+        <dxi-column dataField="id" [caption]="formatMessage('Id')"></dxi-column>
+        <dxi-column dataField="name" [caption]="formatMessage('Name')"></dxi-column>
+        <dxi-column dataField="contract_nr" [caption]="formatMessage('ContactNr')"></dxi-column>
+        <dxi-column dataField="language.name" [caption]="formatMessage('Language')"></dxi-column>
+        <dxi-column dataField="timezone.name" [caption]="formatMessage('Timezone')"></dxi-column>
+        <dxi-column dataField="package.name" [caption]="formatMessage('Package')"></dxi-column>
+        <dxi-column dataField="status" [caption]="formatMessage('Status')"></dxi-column>
+        <dxi-column dataField="package_id" [visible]="false">
+            <dxo-form-item editorType="dxNumberBox" isRequired="true"></dxo-form-item>
+        </dxi-column>
+        <dxi-column dataField="timezone_id" [visible]="false">
+            <dxo-form-item editorType="dxNumberBox" isRequired="true"></dxo-form-item>
+        </dxi-column>
+        <dxi-column dataField="language_id" [visible]="false">
+            <dxo-form-item editorType="dxNumberBox" isRequired="true"></dxo-form-item>
+        </dxi-column>
+        <dxi-column dataField="prefix" [visible]="false">
+            <dxo-form-item editorType="dxTextBox" isRequired="true"></dxo-form-item>
+        </dxi-column>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+            [visible]="true"
+            [allowedPageSizes]="allowedPageSizes"
+            [displayMode]="displayMode"
+            [showPageSizeSelector]="showPageSizeSelector"
+            [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons"
+        >
+        </dxo-pager>
+        </dx-data-grid>
+        <div class="options">
+            <div class="caption">{{ formatMessage('Options') }}</div>
+            <div class="option">
+              <label for="selectInput">{{ formatMessage('Language') }}</label>
+              <dx-select-box
+                id="selectBox"
+                [dataSource]="locales"
+                [inputAttr]="{ 'aria-label': 'Language' }"
+                displayExpr="Name"
+                valueExpr="Value"
+                [value]="locale"
+                (onValueChanged)="changeLocale($event)"
+                [inputAttr]="{ id: 'selectInput' }"
+              >
+              </dx-select-box>
+            </div>
+          </div>
+    </div>
+</div>
