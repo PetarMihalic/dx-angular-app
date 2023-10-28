@@ -15,6 +15,7 @@ import { AuthService } from '../../services';
 export class LoginFormComponent {
   loading = false;
   formData: any = {};
+  loginResponse: any;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -23,12 +24,11 @@ export class LoginFormComponent {
     const { email, password } = this.formData;
     this.loading = true;
 
-    this.authService.logIn(email, password).subscribe((response) => {
-    if (!response.isOk) {
+    this.loginResponse = (await this.authService.logIn(email, password));
+    if(!this.loginResponse.isOk){
       this.loading = false;
-      notify(response.message, 'error', 2000);
-    }});
-  }
+      notify(this.loginResponse.message, 'error', 2000);
+    }};
 
   onCreateAccountClick = () => {
     this.router.navigate(['/create-account']);

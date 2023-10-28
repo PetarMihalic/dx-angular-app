@@ -5,6 +5,7 @@ import * as AspNetData from 'devextreme-aspnet-data-nojquery';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
+import { lastValueFrom } from 'rxjs';
 
 export interface IUser {
   email: string;
@@ -47,13 +48,40 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient, private cookieService: CookieService) { }
 
-  logIn(email: string, password: string): Observable<any> {
+  logIn(email: string, password: string) {
     const loginData = {
       username: email,
       password: password
     };
 
-    return this.http.post('https://ocdev.chaos.hr/api/users/login', loginData, { observe: 'response', withCredentials: true }).pipe(
+    return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/users/login',loginData, {observe: 'response', withCredentials: true }))
+      .then((response: HttpResponse<any>) => {
+        if (response.status === 200) {
+          const responseBody = response.body;
+          this.cookieService.set('PHPSESSID', responseBody.sessionId, undefined, '/', 'localhost', true, 'None');
+          this._user = { ...defaultUser, email, responseBody };
+          this.userValue = responseBody;
+          window.localStorage.setItem('user', JSON.stringify(responseBody));
+          this.router.navigate([this._lastAuthenticatedPath]);
+          return {
+            isOk: true,
+            data: responseBody
+          };
+        } else {
+          return {
+            isOk: false,
+            message: 'asdas'
+          };
+        }
+        }).catch((error: any) => {
+          return {
+            isOk: false,
+            message: error.error.errors.username._invalid
+          };
+        });
+
+    /*
+    return this.http.post('https://ocdev.chaos.hr/api/users/login', loginData, { observe: 'response',  withCredentials: true }).pipe(
       map((response: HttpResponse<any>) => {
         if (response.status === 200) {
           const responseBody = response.body;
@@ -71,11 +99,11 @@ export class AuthService {
         } else {
           return {
             isOk: false,
-            message: "Authentication failed"
+            message: response.body.errors.username._invalid
           };
         }
       })
-    );
+    );*/
   }
 
   async getUser() {
