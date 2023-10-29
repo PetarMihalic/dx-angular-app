@@ -8,6 +8,13 @@ import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { Router } from '@angular/router';
 import { ThemeSelectorModule } from '../theme-selector/theme-selector.component';
+import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+
+import { locale, loadMessages, formatMessage } from 'devextreme/localization';
+
+import deMessages from 'devextreme/localization/messages/de.json';
+
+import { Locale, LanguagesService } from 'src/app/shared/services/languages.service';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -41,7 +48,19 @@ export class HeaderComponent implements OnInit {
     }
   }];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  locale: string;
+
+  locales: Locale[];
+
+  formatMessage = formatMessage;
+
+  constructor(private authService: AuthService, private router: Router, private service: LanguagesService) {
+    this.locale = this.getLocale();
+    this.locales = service.getLocales();
+
+    this.initMessages();
+    locale(this.locale);
+   }
 
   ngOnInit() {
     this.authService.getUser().then((e) => this.user = e.data);
@@ -49,6 +68,25 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu = () => {
     this.menuToggle.emit();
+  }
+
+  initMessages() {
+    loadMessages(deMessages);
+    loadMessages(this.service.getDictionary());
+  }
+
+  changeLocale(data : any) {
+    this.setLocale(data.value);
+    parent.document.location.reload();
+  }
+
+  getLocale() {
+    const locale = sessionStorage.getItem('locale');
+    return locale != null ? locale : 'en';
+  }
+
+  setLocale(locale : any) {
+    sessionStorage.setItem('locale', locale);
   }
 }
 
@@ -58,7 +96,9 @@ export class HeaderComponent implements OnInit {
     DxButtonModule,
     UserPanelModule,
     DxToolbarModule,
-    ThemeSelectorModule
+    ThemeSelectorModule,
+    DxSelectBoxModule,
+    DxTextBoxModule
   ],
   declarations: [ HeaderComponent ],
   exports: [ HeaderComponent ]

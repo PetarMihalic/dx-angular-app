@@ -93,7 +93,7 @@ export class AccountsComponent{
                       }).catch(() => { throw 'Data loading error'; });
               },
               insert: (values) => {
-                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/add', JSON.stringify(values), {withCredentials: true}))
+                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/add', values, {withCredentials: true}))
                   .then((response: any) => {
                     return response;
                     }).catch(() => { throw 'Insertion failed' });
@@ -105,7 +105,7 @@ export class AccountsComponent{
                     }).catch(() => { throw 'Deletion failed' });
               },
               update: (key, values) => {
-                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/edit/' + encodeURIComponent(key), JSON.stringify(values), {withCredentials: true}))
+                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/edit/' + encodeURIComponent(key), values, {withCredentials: true}))
                   .then((response: any) => {
                     return response;
                     }).catch(() => { throw 'Update failed' });
@@ -133,24 +133,4 @@ export class AccountsComponent{
     setLocale(locale : any) {
       sessionStorage.setItem('locale', locale);
     }
-/*
-  url: string;
-
-  constructor(private authService: AuthService) { 
-
-    this.url = 'https://ocdev.chaos.hr/api';
-
-    const that = this;
-
-    this.dataSource = AspNetData.createStore({
-      key: "id",
-      loadUrl: `${this.url}/accounts`,
-      insertUrl: `${this.url}/accounts/add`,
-      updateUrl: `${this.url}/accounts/edit`,
-      deleteUrl: `${this.url}/accounts/delete`,
-      onBeforeSend(method, ajaxOptions) {
-        ajaxOptions.xhrFields = { withCredentials: true };
-      },
-    });
-  }*/
 }

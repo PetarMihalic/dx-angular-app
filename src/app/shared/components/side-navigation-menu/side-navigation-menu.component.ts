@@ -1,6 +1,7 @@
 import { Component, NgModule, Output, Input, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { DxTreeViewModule, DxTreeViewComponent, DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
 import { navigation } from '../../../app-navigation';
+import { formatMessage } from 'devextreme/localization';
 
 import * as events from 'devextreme/events';
 
@@ -37,6 +38,7 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
         if(item.path && !(/^\//.test(item.path))){
           item.path = `/${item.path}`;
         }
+        item.text = formatMessage(item.text);
          return { ...item, expanded: !this._compactMode }
         });
     }
@@ -63,7 +65,8 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) { 
+  }
 
   onItemClick(event: DxTreeViewTypes.ItemClickEvent) {
     this.selectedItemChanged.emit(event);

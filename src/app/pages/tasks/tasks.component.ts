@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import 'devextreme/data/odata/store';
+import { formatMessage } from 'devextreme/localization';
 
 @Component({
   templateUrl: 'tasks.component.html'
@@ -8,6 +9,8 @@ import 'devextreme/data/odata/store';
 export class TasksComponent {
   dataSource: any;
   priority: any[];
+
+  formatMessage = formatMessage;
 
   constructor() {
     this.dataSource = {

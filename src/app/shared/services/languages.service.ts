@@ -27,7 +27,10 @@ const locales: Locale[] = [{
       Timezone: 'Timezone',
       Package: 'Package',
       Status: 'Status',
-      Options: 'Options'
+      Options: 'Options',
+      Accounts: 'Accounts',
+      Home: 'Home',
+      Tasks: 'Tasks',
     },
     de: {
         Id: 'Kennung',
@@ -37,7 +40,10 @@ const locales: Locale[] = [{
         Timezone: 'Zeitzone',
         Package: 'Paket',
         Status: 'Status',
-        Options: 'Optionen'
+        Options: 'Optionen',
+        Accounts: 'Konten',
+        Home: 'Startseite',
+        Tasks: 'Aufgaben',
       }
   };
 

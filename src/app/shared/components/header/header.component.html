@@ -20,6 +20,23 @@
     <dxi-item
     location="after"
     menuItemTemplate="themeSelector">
+      <dx-select-box
+        id="selectBox"
+        [dataSource]="locales"
+        [inputAttr]="{ 'aria-label': 'Language' }"
+        displayExpr="Name"
+        valueExpr="Value"
+        stylingMode="outlined"
+        [value]="locale"
+        (onValueChanged)="changeLocale($event)"
+        [inputAttr]="{ id: 'selectInput' }"
+        height="42px"
+      >
+      </dx-select-box>
+    </dxi-item>
+    <dxi-item
+    location="after"
+    menuItemTemplate="themeSelector">
     <div *dxTemplate="let data of 'item'">
       <theme-selector></theme-selector>
     </div>
