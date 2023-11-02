@@ -1,0 +1,53 @@
+.content-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard-item {
+    flex: 1;
+    padding: 10px;
+    margin: 0.5%;
+    box-sizing: border-box;
+    min-width: 24%; /* Each of the four divs takes up 25% of the available width */
+}
+
+.large-div {
+    flex: 4; /* This large div takes up 100% - 25% (for the four small divs) of the available width */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.dashboard-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dashboard-column {
+    flex: 1;
+    text-align: center;
+}
+
+
+.vertical-line {
+    border-left: 2px solid #ccc;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.dashboard-number {
+    font-size: 24px;
+}
+
+.dashboard-call-queue {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-right: 10px;
+}

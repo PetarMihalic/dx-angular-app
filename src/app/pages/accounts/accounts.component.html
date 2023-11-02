@@ -45,22 +45,5 @@
         >
         </dxo-pager>
         </dx-data-grid>
-        <div class="options">
-            <div class="caption">{{ formatMessage('Options') }}</div>
-            <div class="option">
-              <label for="selectInput">{{ formatMessage('Language') }}</label>
-              <dx-select-box
-                id="selectBox"
-                [dataSource]="locales"
-                [inputAttr]="{ 'aria-label': 'Language' }"
-                displayExpr="Name"
-                valueExpr="Value"
-                [value]="locale"
-                (onValueChanged)="changeLocale($event)"
-                [inputAttr]="{ id: 'selectInput' }"
-              >
-              </dx-select-box>
-            </div>
-          </div>
-    </div>
+        </div>
 </div>

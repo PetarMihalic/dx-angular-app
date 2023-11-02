@@ -4,19 +4,25 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxSelectBoxModule, DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { AccountsComponent } from './pages/accounts/accounts.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'pages/accounts',
-    component: AccountsComponent,
+    path: 'pages/dashboard',
+    component: DashboardComponent,
     canActivate: [ AuthGuardService ]
   },
   {
-    path: 'tasks',
-    component: TasksComponent,
+    path: 'pages/contacts',
+    component: ContactsComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'pages/accounts',
+    component: AccountsComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -62,8 +68,9 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     ProfileComponent,
-    TasksComponent,
-    AccountsComponent
+    AccountsComponent,
+    ContactsComponent,
+    DashboardComponent
   ]
 })
 export class AppRoutingModule { }

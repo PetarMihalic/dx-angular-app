@@ -1,0 +1,42 @@
+<h2 class="content-block">{{formatMessage('Contacts')}}</h2>
+<div class="content-block">
+    <div class="dx-card responsive-paddings">
+        <dx-data-grid
+            [dataSource]="dataSource"
+            [remoteOperations]="true"
+            [width]="'100%'"
+            [height]="600"
+            [showBorders]="true"
+        >
+        <dxo-editing
+            mode="form"
+            [allowAdding]="true"
+            [allowUpdating]="false"
+            [allowDeleting]="false"
+        >
+        </dxo-editing>
+        <dxi-column dataField="account_id" [visible]="false" [caption]="formatMessage('AccountID')">
+            <dxo-form-item editorType="dxNumberBox" isRequired="true"></dxo-form-item>
+        </dxi-column>
+        <dxi-column dataField="id" [caption]="formatMessage('Id')"></dxi-column>
+        <dxi-column dataField="first_name" [caption]="formatMessage('FirstName')"></dxi-column>
+        <dxi-column dataField="last_name" [caption]="formatMessage('LastName')"></dxi-column>
+        <dxi-column dataField="address" [caption]="formatMessage('Address')"></dxi-column>
+        <dxi-column dataField="description" [caption]="formatMessage('Description')"></dxi-column>
+        <dxi-column dataField="cf.title" [caption]="formatMessage('Title')"></dxi-column>
+        <dxi-column dataField="cf.contact_budget" [caption]="formatMessage('Budget')"></dxi-column>
+        <dxi-column dataField="addr_emails" [caption]="formatMessage('Emails')"></dxi-column>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+            [visible]="true"
+            [allowedPageSizes]="allowedPageSizes"
+            [displayMode]="displayMode"
+            [showPageSizeSelector]="showPageSizeSelector"
+            [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons"
+        >
+        </dxo-pager>
+        </dx-data-grid>
+        </div>
+</div>
+

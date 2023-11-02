@@ -10,12 +10,11 @@ import { LoadOptions } from 'devextreme/data';
 import { formatMessage } from 'devextreme/localization';
 
 @Component({
-  selector: 'app-accounts',
-  templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.scss']
+  selector: 'app-contacts',
+  templateUrl: './contacts.component.html',
+  styleUrls: ['./contacts.component.scss']
 })
-export class AccountsComponent{
-
+export class ContactsComponent {
   dataSource: any;
 
   readonly allowedPageSizes = [5, 10, 20];
@@ -68,7 +67,7 @@ export class AccountsComponent{
                       params = params.set('page', Number(params.get('skip')!)/Number(params.get('limit')!)+1);
                   });
 
-                  return lastValueFrom(this.http.get('https://ocdev.chaos.hr/api/accounts',{ params, withCredentials: true }))
+                  return lastValueFrom(this.http.get('https://ocdev.chaos.hr/api/contacts',{ params, withCredentials: true }))
                     .then((response: any) => {
                       return {
                           data: response?.rows,
@@ -77,11 +76,11 @@ export class AccountsComponent{
                       }).catch(() => { throw 'Data loading error'; });
               },
               insert: (values) => {
-                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/add', values, {withCredentials: true}))
+                  return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/contacts/add', values, {withCredentials: true}))
                   .then((response: any) => {
                     return response;
                     }).catch(() => { throw 'Insertion failed' });
-              },
+              }/*,
               remove: (key) => {
                   return lastValueFrom(this.http.post('https://ocdev.chaos.hr/api/accounts/delete/' + encodeURIComponent(key), {}, {withCredentials: true}))
                   .then((response: any) => {
@@ -93,7 +92,7 @@ export class AccountsComponent{
                   .then((response: any) => {
                     return response;
                     }).catch(() => { throw 'Update failed' });
-              }
+              }*/
             }),
           });
     }
