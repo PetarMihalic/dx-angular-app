@@ -1,11 +1,11 @@
-<div style="width: 100%; height: calc(100vh - 157px); background: #32323b;" >
+<div style="width: 100%; height: calc(100vh - 157px);" >
 	<as-split direction="horizontal" gutterSize="5">
 		<!--PRVI STUPAC-->
-		<as-split-area [size]="25">
+		<as-split-area [size]="25" style="padding: 5px;">
 			<app-tickets-list></app-tickets-list>
 		</as-split-area>
 		<!--DRUGI STUPAC-->
-		<as-split-area [size]="25">
+		<as-split-area [size]="25" style="padding: 5px;">
 			<app-ticket-editor></app-ticket-editor>
 		</as-split-area>
 		<!--TRECI STUPAC-->
@@ -17,8 +17,7 @@
 				</as-split-area>
 				<!--DRUGA KOMPONENTA-->
 				<as-split-area [size]="40">
-					<div class="dx-card">
-						<b>Communicator</b>
+					<div>
 						<dx-tab-panel [selectedIndex]="0">
 							<dxi-item title="E-mail" icon="email">
 								<app-email-editor></app-email-editor>
@@ -47,7 +46,7 @@
 				</as-split-area>
 				<!--TRECA KOMPONENTA-->
 				<as-split-area [size]="50">
-					<div class="dx-card">
+					<div>
 						<b>Filter: items, categories, search, order</b>
 						<dx-tab-panel [selectedIndex]="0">
 							<dxi-item title="Canned responses">

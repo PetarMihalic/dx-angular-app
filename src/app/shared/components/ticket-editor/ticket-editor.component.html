@@ -1,4 +1,4 @@
-<div *ngIf="formShow; else NoEntitySelected" class="content-block dx-card responsive-paddings" style="padding:10px;">
+<div *ngIf="formShow; else NoEntitySelected">
     Action: {{formAction}}
     <form action="x" method="post" (submit)="onFormSubmit($event)">
         <dx-form id="form" [formData]="formData" [readOnly]="formReadOnly">
