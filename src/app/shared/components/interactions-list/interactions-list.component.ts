@@ -30,12 +30,18 @@ export class InteractionsListComponent {
 				//this.list?.instance.getDataSource().reload();
 			} 
 		});
-		this.route.queryParams.subscribe(params => {
+		/*this.route.queryParams.subscribe(params => {
 			//this.messageId = params['messageId'];
 			this.ticketId = params['id'];
 			this.list?.instance.reload();
 			//TODO apply messageId & ticketId to store
-		});
+			if(this.ticketId){
+				this.crudService.read('audits', this.ticketId).then((data: any) => {
+					this.dataSource = data;
+				});
+			}
+		});*/
+		
 	 }
 
 	onRefreshClick(e: any){

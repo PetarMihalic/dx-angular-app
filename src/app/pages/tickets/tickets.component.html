@@ -1,15 +1,17 @@
-<div style="width: 100%; height: calc(100vh - 157px);" >
+<div style="width: 100%; height: calc(100vh - 85px);" >
 	<as-split direction="horizontal" gutterSize="5">
 		<!--PRVI STUPAC-->
 		<as-split-area [size]="25" style="padding: 5px;">
 			<app-tickets-list></app-tickets-list>
 		</as-split-area>
+		<as-split-area [size]="75" *ngIf="!showTicketDetails">
+		</as-split-area>
 		<!--DRUGI STUPAC-->
-		<as-split-area [size]="25" style="padding: 5px;">
+		<as-split-area [size]="25" *ngIf="showTicketDetails">
 			<app-ticket-editor></app-ticket-editor>
 		</as-split-area>
 		<!--TRECI STUPAC-->
-		<as-split-area [size]="25">
+		<as-split-area [size]="25" *ngIf="showTicketDetails">
 			<as-split direction="vertical" gutterSize="5">
 				<!--PRVA KOMPONENTA-->
 				<as-split-area [size]="60">
@@ -34,7 +36,7 @@
 			</as-split>
 		</as-split-area>
 		<!--CETVRTI STUPAC-->
-		<as-split-area [size]="25">
+		<as-split-area [size]="25" *ngIf="showTicketDetails">
 			<as-split direction="vertical" gutterSize="5">
 				<!--PRVA KOMPONENTA-->
 				<as-split-area [size]="25">

@@ -1,5 +1,18 @@
-<div *ngIf="formShow; else NoEntitySelected">
-    Action: {{formAction}}
+<div *ngIf="formShow; else NoEntitySelected" style="padding: 10px;">
+    <div class="edit1">
+        <div class="title">{{formData.subject}}</div>
+        <div class="divider"></div>
+    </div>
+    <div class="edit2">
+        <div class="title">Members</div>
+        <div class="divider"></div>
+    </div>
+    <div class="edit3">
+
+    </div>
+    <div class="edit4">
+
+    </div>
     <form action="x" method="post" (submit)="onFormSubmit($event)">
         <dx-form id="form" [formData]="formData" [readOnly]="formReadOnly">
             <dxi-item itemType="group">

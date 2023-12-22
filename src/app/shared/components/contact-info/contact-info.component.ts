@@ -45,10 +45,8 @@ export class ContactInfoComponent{
 					this.formLoading = false;
 					this.contactId = data.contact_id;
 					if(this.contactId){
-						console.log(this.contactId)
 						this.crudService.read('contacts', this.contactId).then((data: any) => { 
 							this.contactInfo = data;
-							console.log(data);
 							if(this.contactInfo){
 								this.formLoading = false;
 								this.formShow=true;
