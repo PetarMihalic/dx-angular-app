@@ -1,0 +1,104 @@
+<div *ngIf="formShow; else NoEntitySelected" class="content-block dx-card responsive-paddings" style="padding:10px;">
+    Action: {{formAction}}
+    <form action="x" method="post" (submit)="onFormSubmit($event)">
+        <dx-form id="form" [formData]="formData" [readOnly]="formReadOnly">
+            <dxi-item itemType="group">
+                <dxi-item dataField="project_id" editorType="dxSelectBox" [editorOptions]="{ 
+                    dataSource:projectsStore, valueExpr:'id', displayExpr:'name', 
+                    searchEnabled:true, showDataBeforeSearch: true,
+                    validationMessageMode: 'always'
+                }"></dxi-item>
+                <dxi-item dataField="priority" editorType="dxSelectBox" [editorOptions]="{ 
+                    items: priorities, valueExpr:'key', displayExpr:'label', validationMessageMode: 'always'
+                }"></dxi-item>
+                <dxi-item dataField="subject" [editorOptions]="{validationMessageMode: 'always'}"></dxi-item>
+                <dxi-item dataField="description" editorType="dxTextArea"  [editorOptions]="{validationMessageMode: 'always', autoResizeEnabled: false, height: 200}"></dxi-item>
+                <dxi-item dataField="ticket_status_id" editorType="dxSelectBox" [editorOptions]="{
+                    dataSource: statusesStore, valueExpr:'id', displayExpr:'label', validationMessageMode: 'always'
+                }"></dxi-item>
+                <dxi-item dataField="requestor_contact_id" editorType="dxSelectBox" [editorOptions]="{
+                    dataSource: contactsStore, valueExpr:'id', displayExpr:getContactName, validationMessageMode: 'always'
+                }"></dxi-item>
+
+                <!--
+                <dxi-item
+                    dataField="Position"
+                    editorType="dxSelectBox"
+                    [editorOptions]="{ items: positions, value: '' }"
+                ></dxi-item>
+                -->
+            </dxi-item>
+            
+            
+            
+            <dxi-item itemType="group" colCount="3" >
+                <dxi-item itemType="empty" [colSpan]="1"></dxi-item>
+				<dxi-item itemType="button" [buttonOptions]="{text:'OK', type:'success', useSubmitBehavior:true, width:120}" horizontalAlignment="right" width="120px"></dxi-item>
+                <dxi-item itemType="button" [buttonOptions]="{text:'Cancel', type:'normal', width:120, onClick: this.onCancel}" width="120px"></dxi-item>
+				<!--
+                    TODO https://supportcenter.devexpress.com/ticket/details/t845685/form-how-to-place-2-or-more-buttonitems-inline-and-either-all-left-or-all-right-aligned
+				<dxi-item itemType="button" [buttonOptions]="{text:'Cancel', type:'normal', width:120, onClick: onCancel }"></dxi-item>
+				-->
+				
+			</dxi-item>
+        <!--
+            <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+                <dxi-item>
+                <div class="form-avatar"></div>
+                </dxi-item>
+                <dxi-item itemType="group" [colSpan]="3">
+                <dxi-item dataField="FirstName"></dxi-item>
+                <dxi-item dataField="LastName"></dxi-item>
+                <dxi-item
+                    dataField="BirthDate"
+                    editorType="dxDateBox"
+                    [editorOptions]="{ width: '100%' }"
+                ></dxi-item>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+                <dxi-item itemType="group">
+                <dxi-item dataField="Address"></dxi-item>
+                <dxi-item dataField="City"></dxi-item>
+                <dxi-item
+                    dataField="Position"
+                    editorType="dxSelectBox"
+                    [editorOptions]="{ items: positions, value: '' }"
+                ></dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group">
+                <dxi-item
+                    dataField="State"
+                    editorType="dxSelectBox"
+                    [editorOptions]="{ items: states }"
+                ></dxi-item>
+                <dxi-item dataField="ZipCode"></dxi-item>
+                <dxi-item
+                    dataField="Mobile"
+                    [label]="{ text: 'Phone' }"
+                    [editorOptions]="{ mask: '+1 (000) 000-0000' }"
+                ></dxi-item>
+                </dxi-item>
+                <dxi-item
+                dataField="Notes"
+                [colSpan]="2"
+                editorType="dxTextArea"
+                [editorOptions]="{ height: 140 }"
+                ></dxi-item>
+            </dxi-item>
+        -->        
+        </dx-form>
+    </form>
+</div>
+<ng-template #NoEntitySelected>
+	Please select something first...
+</ng-template>
+<dx-load-panel
+    shadingColor="rgba(0,0,0,0.3)"
+    [position]="{ of: 'app-internal-note-editor dx-form' }"
+    [(visible)]="formLoading"
+    [showIndicator]="true"
+    [showPane]="true"
+    [shading]="true"
+    [hideOnOutsideClick]="false">
+</dx-load-panel>

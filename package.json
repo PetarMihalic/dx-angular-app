@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "angular-split": "^17.1.1",
     "devextreme": "^23.1.5",
     "devextreme-angular": "^23.1.5",
     "devextreme-aspnet-data-nojquery": "^3.0.0",

@@ -1,0 +1,22 @@
+<div *ngIf="formShow; else NoEntitySelected" class="dx-card" style="padding:10px;">
+    <div class="title">Contact info</div>
+    <div class="divider"></div>
+
+    <div class="columns">
+        <!-- Left column -->
+        <div class="left-column">
+        <div class="label">Ime: {{contactInfo.first_name}} {{contactInfo.last_name}}</div>
+        <div class="label">Adresa: {{contactInfo.address}}</div>
+        </div>
+
+        <!-- Right column -->
+        <div class="right-column">
+        <div class="label">E-mail: {{contactInfo.addr_emails[0]}}</div>
+        <div class="label">E-mail2: {{contactInfo.addr_emails[1]}}</div>
+        <div class="label">E-mail3: {{contactInfo.addr_emails[2]}}</div>
+        </div>
+    </div>
+</div>
+<ng-template #NoEntitySelected>
+	Please select something first...
+</ng-template>

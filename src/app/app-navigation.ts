@@ -10,6 +10,11 @@ export const navigation = [
     icon: 'smalliconslayout'
   },
   {
+    text: 'Tickets',
+    path: '/pages/tickets',
+    icon: 'textdocument'
+  },
+  {
     text: 'Accounts',
     path: '/pages/accounts',
     icon: 'group'

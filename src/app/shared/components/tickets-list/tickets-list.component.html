@@ -1,0 +1,34 @@
+<div class="dx-card">
+    <p>Ovdje ide lista ticketa. TODO: filteri, ikone i statusi u ticketima</p>
+    <dx-toolbar>
+        <dxi-item name="searchPanel" location="before"></dxi-item>
+        <dxi-item location="before">
+            <div *dxTemplate>
+                <div>Ticketsssssss</div>
+            </div>
+        </dxi-item>
+
+        <dxi-item location="before">
+            <div *dxTemplate xstyle="border:1px solid red;">
+            <dx-button icon="refresh" text="Show" (onClick)="onRefreshClick($event)" ></dx-button>
+            </div>
+        </dxi-item>
+        <dxi-item location="after">
+            <div *dxTemplate>
+                <dx-button icon="add" text="Add new" [routerLink]="['/pages/tickets']" [queryParams]="{action: 'add'}"></dx-button>
+            </div>
+        </dxi-item>
+    </dx-toolbar>
+    <dx-list 
+        [dataSource]="dataSource" 
+        [searchEnabled]="true" 
+        (onItemClick)="onItemClick($event)" 
+        [indicateLoading]="true">
+        <div *dxTemplate="let data of 'item'">
+            <div [ngClass]="{'ticket-list-item-high': data.priority == 'high'}">
+                {{ data.subject }}<br/>
+                Drugi red {{data.priority}}, {{data.description}}
+            </div>
+          </div>
+    </dx-list>
+</div>

@@ -1,0 +1,30 @@
+.dx-card {
+    // Title styling
+    .title {
+      font-size: 1em; // Adjust the font size as needed
+      text-align: left;
+      margin-bottom: 10px; // Adjust the margin as needed
+    }
+  
+    // Horizontal line styling
+    .divider {
+      border-top: 1px solid #ccc; // Adjust the color and thickness as needed
+      margin-bottom: 15px; // Adjust the margin as needed
+    }
+  
+    // Columns styling
+    .columns {
+      display: flex;
+  
+      // Left column styling
+      .left-column {
+        flex: 1;
+        padding-right: 10px; // Adjust the padding as needed
+      }
+  
+      // Right column styling
+      .right-column {
+        flex: 1;
+      }
+    }
+  }

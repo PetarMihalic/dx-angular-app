@@ -4,12 +4,27 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { DxSelectBoxModule, DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxButtonModule, DxLoadIndicatorModule, DxBoxModule, DxListModule, DxToolbarModule, DxTabPanelModule, DxLoadPanelModule, DxScrollViewModule, DxHtmlEditorModule, DxTextAreaModule, DxFileUploaderModule } from 'devextreme-angular';
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TicketsComponent } from './pages/tickets/tickets.component';
+import { TicketsListComponent } from './shared/components/tickets-list/tickets-list.component';
+import { TicketEditorComponent } from './shared/components/ticket-editor/ticket-editor.component';
+import { InteractionsListComponent } from './shared/components/interactions-list/interactions-list.component';
+import { EmailEditorComponent } from './shared/components/email-editor/email-editor.component';
+import { InternalNoteEditorComponent } from './shared/components/internal-note-editor/internal-note-editor.component';
+import { ContactInfoComponent } from './shared/components/contact-info/contact-info.component';
+import { ContactHistoryComponent } from './shared/components/contact-history/contact-history.component';
+import { DatePipe, NgClass, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { AngularSplitModule } from 'angular-split';
 
 const routes: Routes = [
+  {
+    path: 'pages/tickets',
+    component: TicketsComponent,
+    canActivate: [ AuthGuardService ]
+  },
   {
     path: 'pages/dashboard',
     component: DashboardComponent,
@@ -62,7 +77,24 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, DxSelectBoxModule],
+  imports: [RouterModule.forRoot(routes, { useHash: true }), 
+    DxDataGridModule, 
+    DxFormModule, 
+    DxButtonModule, 
+    DxTextAreaModule,
+    DxLoadIndicatorModule, 
+    DxBoxModule, 
+    DxListModule, 
+    DxToolbarModule,
+    DxTabPanelModule,
+    DxLoadPanelModule,
+    DxScrollViewModule,
+    DxHtmlEditorModule,
+    DxFileUploaderModule,
+    NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgClass,
+    DatePipe,
+    AngularSplitModule
+  ],
   providers: [AuthGuardService],
   exports: [RouterModule],
   declarations: [
@@ -70,7 +102,15 @@ const routes: Routes = [
     ProfileComponent,
     AccountsComponent,
     ContactsComponent,
-    DashboardComponent
+    DashboardComponent,
+    TicketsComponent,
+    TicketsListComponent,
+    TicketEditorComponent,
+    InteractionsListComponent,
+    EmailEditorComponent,
+    InternalNoteEditorComponent,
+    ContactInfoComponent,
+    ContactHistoryComponent
   ]
 })
 export class AppRoutingModule { }

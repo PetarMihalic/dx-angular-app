@@ -1,0 +1,55 @@
+<!--
+<b>Interactions history</b><br/>
+Dx List s custom templateima za svaki entry<br/>
+Custom data source s websocketom i updateom (remote operations)<br/>
+
+<b>
+	TODO: <br/>
+	Header, content, footer (attachmenti), desno interakcijske ikone<br/>
+	Render contenta: text i html<br/>
+	<a href="https://js.devexpress.com/Demos/WidgetsGallery/Demo/HtmlEditor/Mentions/Angular/Light/" target="_blank">Primjer chat poruka</a>
+</b>
+-->
+<div class="list-container dx-card">
+	<dx-toolbar>
+		<dxi-item name="searchPanel" location="before"></dxi-item>
+		<dxi-item location="before">
+			<div *dxTemplate>
+				<div>Interactions</div>
+			</div>
+		</dxi-item>
+
+		<dxi-item location="before">
+			<div *dxTemplate xstyle="border:1px solid red;">
+			<dx-button icon="refresh" text="Show" (onClick)="onRefreshClick($event)" ></dx-button>
+			</div>
+		</dxi-item>
+		<dxi-item location="after">
+			<div *dxTemplate>
+				<dx-button icon="add" text="Add new" [routerLink]="['/pages/tickets']" [queryParams]="{action: 'add'}"></dx-button>
+			</div>
+		</dxi-item>
+	</dx-toolbar>
+	<dx-list [dataSource]="dataSource" [searchEnabled]="true" [height]="385" (onItemClick)="onItemClick($event)" [indicateLoading]="true">
+		<div *dxTemplate="let data of 'item'" [ngSwitch]="data.entity">
+			<div *ngSwitchCase="'AppModelEntityTicket'">
+				{{ data.created | date:'dd.MM.yyyy HH:mm'}}<br/>
+				{{ data.user.first_name}} {{ data.user.last_name}}: {{ data.controller}}->{{ data.action}}<br/>
+				{{ data.entity}} {{ data.entity_id}}<br/>
+				<!--<b>{{ data.ticket.subject}}</b><br/>-->
+			</div>
+			<div *ngSwitchCase="'App\\Model\\Entity\\Note'">
+				Note
+				{{ data.created | date:'dd.MM.yyyy HH:mm'}}<br/>
+				{{ data.user.first_name}} {{ data.user.last_name}}: {{ data.controller}}->{{ data.action}}<br/>
+				{{ data.entity}} {{ data.entity_id}}<br/>
+				<b>{{ data.note.content}}</b><br/>
+			</div>
+			<div *ngSwitchDefault>
+				Defaultni template
+				{{ data.created}} {{ data.user.first_name}} {{ data.user.last_name}}: {{ data.controller}}->{{ data.action}}<br/>
+				{{ data.entity}} {{ data.entity_id}}<br/>
+			</div>
+		  </div>
+	</dx-list>
+</div>

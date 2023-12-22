@@ -1,0 +1,21 @@
+.interaction-list{
+    background-color: rgba(191, 191, 191, 0.15);
+   
+}
+
+.interaction-list-item {
+    min-height: 85px;
+    background-color: inherit;
+    display: inline-block;
+    min-width: 51%;
+    max-width: 95%;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    white-space: pre;
+  }
+
+  .interaction-list-item .subject {
+    font-weight: bold;
+  }

@@ -1,0 +1,16 @@
+
+.list-container{
+    height: 100%;
+    padding: 5px;
+    /*
+    max-height: 800px;
+    overflow: scroll;
+    */
+}
+
+::ng-deep app-tickets-list{
+}
+
+.ticket-list-item-high {
+    background-color: #fcc;
+}
