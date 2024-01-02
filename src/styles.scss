@@ -41,3 +41,217 @@ app-tickets .as-split-gutter > .as-split-gutter-icon {
   *::-webkit-scrollbar-thumb:active {
     background-color: #676767;
   }
+
+//app-tickets za cijeli view
+
+app-tickets .dx-widget {
+  font-size: 12px;
+}
+
+app-tickets .dx-tagbox .dx-texteditor-input {
+  width: auto;
+  height: 0px;
+}
+
+app-tickets .dx-accordion-item-body {
+  padding: 0px;
+}
+
+app-tickets .dx-accordion-item-title::before {
+  right: 8px;
+}
+
+app-tickets .dx-accordion-item-title {
+  font-size: 16px;
+  height: 32px;
+  padding: 5px 10px;
+  min-height: 32px;
+}
+
+app-tickets .dx-accordion {
+  margin: 0px;
+}
+
+app-tickets .dx-accordion-item-opened {
+  margin: 2px 0;
+}
+
+app-contact-info .dx-accordion-item-title .dx-accordion-item-title-caption {
+  top: 7px;
+  left: 10px;
+}
+
+app-contact-history .dx-accordion-item-title .dx-accordion-item-title-caption {
+  top: 7px;
+  left: 10px;
+}
+
+app-contact-documents .dx-accordion-item-title .dx-accordion-item-title-caption {
+  top: 7px;
+  left: 10px;
+}
+
+app-ticket-editor .grid-container .dx-texteditor.dx-editor-outlined .dx-texteditor-input {
+  padding: 5px 0px 5px 5px;
+  font-size: 14px;
+}
+
+app-ticket-editor .dx-texteditor.dx-editor-outlined .dx-placeholder::before {
+  padding: 8px 16px 8px;
+}
+
+app-ticket-editor .dx-texteditor.dx-editor-outlined .dx-texteditor-input {
+  padding: 8px 0px 8px 16px;
+}
+
+app-ticket-editor .dx-editor-outlined .dx-texteditor-buttons-container:last-child > .dx-dropdowneditor-button:last-child {
+  margin-right: 0px;
+}
+
+app-ticket-editor .dx-editor-outlined.dx-texteditor-with-floating-label{
+  margin-top: 10px;
+}
+
+app-ticket-editor .dx-tag-remove-button::before {
+  margin-left: -6px;
+}
+
+app-ticket-editor .dx-tagbox.dx-editor-outlined .dx-tag-container {
+  min-height: 33px;
+}
+
+app-ticket-editor .dx-tag-content {
+  padding: 5px 32px 3px 10px;
+}
+
+app-ticket-editor .dx-field-value-static {
+  padding: 5px 10px;
+  width: auto;
+}
+
+app-ticket-editor .dx-field-label {
+  padding-left: 10px;
+  padding-right: 0px;
+  width: 85px;
+  min-width: 85px;
+}
+
+app-side-navigation-menu .dx-treeview-expander-icon-stub {
+  height: 0px; //nakon updejta devextremea je to smetalo
+}
+
+app-ticket-editor .dx-editor-outlined.dx-texteditor-label-outside .dx-label span {
+  top: -20px;
+}
+
+app-ticket-editor dx-date-box span {
+  left: -15px;
+}
+
+app-ticket-editor .dx-button-text {
+  text-transform: none;
+}
+
+app-ticket-editor .dx-button-has-text .dx-button-content {
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+}
+
+app-ticket-editor .dx-button {
+  height: 30px;
+}
+
+app-tickets .dx-editor-outlined.dx-texteditor-label-outside .dx-label span {
+  font-size: 12px;
+}
+
+app-tickets .dx-texteditor.dx-editor-outlined .dx-texteditor-input {
+  font-size: 12px;
+}
+
+app-tickets .dx-texteditor.dx-editor-outlined .dx-placeholder::before {
+  font-size: 12px;
+}
+
+app-ticket-editor .dx-layout-manager .dx-field-item:not(.dx-first-row) {
+  padding-top: 0px;
+}
+
+app-ticket-editor .dx-layout-manager .dx-field-item {
+  padding-bottom: 0px;
+}
+
+app-tickets-list .dx-texteditor.dx-editor-outlined .dx-placeholder::before {
+  padding: 8px 40px 8px;
+}
+
+app-tickets-list .dx-texteditor.dx-editor-outlined .dx-texteditor-input {
+  padding: 8px 10px 8px 40px;
+}
+
+app-tickets-list .dx-searchbox.dx-editor-outlined .dx-icon-search {
+  width: 40px;
+  padding: 12px;
+  margin-top: -25px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+}
+
+app-tickets-list .dx-texteditor.dx-editor-outlined {
+  border-radius: 20px;
+}
+
+app-tickets-list .dx-list-item-content {
+  font-size: 12px;
+  padding: 0px;
+}
+
+app-tickets-list .dx-list-search {
+  padding-top: 4px;
+  margin: 10px;
+}
+
+app-tickets-list .dx-list-item:last-of-type {
+  border-bottom: 1px solid #171518;
+  margin-bottom: 0px;
+}
+
+app-tickets-list .dx-list-item:first-of-type {
+  border-top: none;
+  margin-top: 0px;
+}
+
+app-side-nav-outer-toolbar .dx-treeview-item .dx-treeview-item-content {
+  font-size: 12px;
+}
+
+app-side-nav-outer-toolbar .dx-swatch-additional .dx-treeview-item {
+  padding: 5px 0px;
+  min-height: 34px;
+  line-height: 22px;
+}
+
+app-side-nav-outer-toolbar .dx-swatch-additional .dx-treeview-item .dx-treeview-item-content > .dx-icon {
+  font-size: 22px;
+}
+
+app-side-nav-outer-toolbar .dx-swatch-additional .dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened::before {
+  margin-top: -18px;
+  margin-left: -8px;
+}
+
+app-side-nav-outer-toolbar .dx-swatch-additional .dx-treeview-toggle-item-visibility::before {
+  margin-top: -18px;
+  margin-left: -8px;
+}
+
+app-contact-history .dx-list-item-content {
+  padding: 10px 10px 0px;
+}
+
+app-contact-history .dx-list-item:last-of-type > .vertical-line {
+  border-left: 0px solid #888;
+}
+
+
+

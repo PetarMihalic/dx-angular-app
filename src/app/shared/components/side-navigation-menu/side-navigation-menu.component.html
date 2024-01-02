@@ -8,6 +8,20 @@
     [focusStateEnabled]="false"
     expandEvent="click"
     (onItemClick)="onItemClick($event)"
-    width="100%">
+    width="100%"
+    itemTemplate="item">
+    <div *dxTemplate="let data of 'item'"> <!--https://supportcenter.devexpress.com/ticket/details/t1086469/treeview-how-to-customize-dx-tree-view-items-in-the-angular-devextreme-template-->
+      <div *ngIf="data.icon">
+            <i class="dx-icon dx-icon-{{data.icon}}"></i>
+            <span>{{ data.text }}</span>
+      </div>
+      <div *ngIf="data.count">
+          <span>{{ data.text }}</span>
+          <span style ="float:right; padding-right: 10px;" [ngClass]="{'sla-reached': data.text == 'SLA reached'}">{{ data.count }}</span>
+      </div>
+      <div *ngIf="!data.count && !data.icon">
+          <span>{{ data.text }}</span>
+      </div>
+    </div>
   </dx-tree-view>
 </div>

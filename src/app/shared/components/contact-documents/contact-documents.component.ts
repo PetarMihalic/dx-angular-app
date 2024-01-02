@@ -6,11 +6,11 @@ import { AppInfoService, AuthService } from '../../services';
 
 
 @Component({
-	selector: 'app-contact-history',
-	templateUrl: './contact-history.component.html',
-	styleUrls: ['./contact-history.component.scss']
+	selector: 'app-contact-documents',
+	templateUrl: './contact-documents.component.html',
+	styleUrls: ['./contact-documents.component.scss']
 })
-export class ContactHistoryComponent{
+export class ContactDocumentsComponent{
 	protected ticketId?: number;
 	protected contactId?: number;
 	protected contactInfo: any = {};
@@ -24,40 +24,6 @@ export class ContactHistoryComponent{
 
 	protected isChildEditor: boolean = false;
 	protected mapUrlEntityIdToFormField: string = 'parent_id';
-
-	dataSouce: object[] = [
-		{
-			icon: 'info', 
-			title: 'Changed Phone Number',
-			dateTime: '18.12.2023. - 12:38:22',
-			author: 'Agent One',
-			description: '042 777 777 to 042 123 456.'
-		},{
-			icon: 'attach', 
-			title: 'Added file',
-			dateTime: '18.12.2023. - 12:37:03',
-			author: 'Agent One',
-			description: 'Ugovor-2023-12.pdf.'
-		},{
-			icon: 'event', 
-			title: 'Added Calendar Event',
-			dateTime: '18.12.2023. - 12:33:38',
-			author: 'Agent One',
-			description: 'Sastanak za potpisivane ugovota at 02.12.2023. - 13:00.'
-		},{
-			icon: 'textdocument', 
-			title: 'Created Ticket',
-			dateTime: '16.12.2023. - 13:02:05',
-			author: 'System',
-			description: 'T2135 - Ponuda za novu uslugu od sljedeće godine.'
-		},{
-			icon: 'info', 
-			title: 'Created Contact',
-			dateTime: '11.12.2023. - 07:11:41',
-			author: 'Agent One',
-			description: 'Contact One.'
-		},
-	];
 	
 	constructor(
 		protected crudService: CrudService,

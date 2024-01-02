@@ -1,22 +1,33 @@
-<div *ngIf="formShow; else NoEntitySelected" style="padding:10px;">
-    <div class="title">Contact history</div>
-    <div class="divider"></div>
-    <div>
-        Neki podaci ... 
-    </div>
-    <div>
-        Neki podaci ... 
-    </div>
-    <div>
-        Neki podaci ... 
-    </div>
-    <div>
-        Neki podaci ... 
-    </div>
-    <div>
-        Neki podaci ... 
-    </div>
-</div>
-<ng-template #NoEntitySelected>
-	Please select something first...
-</ng-template>
+<dx-accordion [collapsible]="true"> <!--[selectedItem]="null"-->
+    <dxi-item title="Contact history">
+        <dx-list 
+        [dataSource]="dataSouce" 
+        [searchEnabled]="true"
+        searchMode="contains"
+        [searchEditorOptions]="{
+            stylingMode: 'outlined',
+            width: '40%'
+        }"
+        [indicateLoading]="true">
+        <div *dxTemplate="let data of 'item'" style="font-size: 12px;">
+            <div class="custom-item">
+                <div class="icon-container">
+                  <div class="dx-icon dx-icon-{{data.icon}}" style="color: #03a9f4"></div>
+                  <div class="vertical-line"></div>
+                </div>
+                <div class="content-container">
+                    <div class="info-container">
+                        <div class="title">{{ data.title }}</div>
+                        <div class="meta-info">
+                            <div class="date">{{ data.dateTime }}</div>
+                            <div class="author">by {{ data.author }}</div>
+                        </div>
+                    </div>
+                  <div class="description">{{ data.description }}</div>
+                  <div class="horizontal-line"></div>
+                </div>
+              </div>
+        </div>
+    </dx-list>
+    </dxi-item>
+</dx-accordion>

@@ -1,22 +1,52 @@
-<div *ngIf="formShow; else NoEntitySelected" style="padding:10px;">
-    <div class="title">Contact info</div>
-    <div class="divider"></div>
-
-    <div class="columns">
-        <!-- Left column -->
-        <div class="left-column">
-        <div class="label">Ime: {{contactInfo.first_name}} {{contactInfo.last_name}}</div>
-        <div class="label">Adresa: {{contactInfo.address}}</div>
+<dx-accordion [collapsible]="true"> <!--[selectedItem]="null"-->
+    <dxi-item title="Contact info">
+        <div class="dx-field">
+            <div class="dx-field-label">Name:</div>
+            <div class="dx-field-value-static">{{contactInfo.first_name}} {{contactInfo.last_name}}</div>
         </div>
-
-        <!-- Right column -->
-        <div class="right-column">
-        <div class="label">E-mail: {{contactInfo.addr_emails[0]}}</div>
-        <div class="label">E-mail2: {{contactInfo.addr_emails[1]}}</div>
-        <div class="label">E-mail3: {{contactInfo.addr_emails[2]}}</div>
+        <div class="dx-field">
+            <div class="dx-field-label">Street:</div>
+            <div class="dx-field-value-static">{{contactInfo.address}}</div>
         </div>
-    </div>
-</div>
-<ng-template #NoEntitySelected>
-	Please select something first...
-</ng-template>
+        <div class="dx-field">
+            <div class="dx-field-label">Postal code:</div>
+            <div class="dx-field-value-static">15000</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">City:</div>
+            <div class="dx-field-value-static">New city</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Country:</div>
+            <div class="dx-field-value-static">Croatia</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Phone:</div>
+            <div class="dx-field-value-static">095 123 4567</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Phone2:</div>
+            <div class="dx-field-value-static">042 123 456</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">E-mail:</div>
+            <div class="dx-field-value-static">{{contactInfo.addr_emails[0]}}</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">E-mail2:</div>
+            <div class="dx-field-value-static">{{contactInfo.addr_emails[1]}}</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Note:</div>
+            <div class="dx-field-value-static">Ovo je jako važan korisnik i svi upiti moraju se riješiti u maksimlno 2 ili 3 sata. Na sve usluge ima rabat kao i premium korisnici i sve upite mora odobriti i Contact Five jer je on zadužen za financije.</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Company:</div>
+            <div class="dx-field-value-static">{{contactInfo.first_name}} {{contactInfo.last_name}}</div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Position:</div>
+            <div class="dx-field-value-static">{{contactInfo.address}}</div>
+        </div>
+    </dxi-item>
+</dx-accordion>

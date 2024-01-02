@@ -25,7 +25,7 @@ export class SideNavOuterToolbarComponent implements OnInit {
 
   menuMode = 'shrink';
   menuRevealMode = 'expand';
-  minMenuSize = 0;
+  minMenuSize = 45;
   shaderEnabled = false;
 
   constructor(private screen: ScreenService, private router: Router) { }

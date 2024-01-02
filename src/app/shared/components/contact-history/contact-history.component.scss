@@ -1,12 +1,65 @@
 
-    .title {
-      font-size: 1em; // Adjust the font size as needed
-      text-align: left;
-      margin-bottom: 10px; // Adjust the margin as needed
-    }
-  
-    // Horizontal line styling
-    .divider {
-      border-top: 1px solid #ccc; // Adjust the color and thickness as needed
-      margin-bottom: 15px; // Adjust the margin as needed
-    }
+.custom-item {
+  display: flex;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 30px; /* Adjust based on your icon size */
+  bottom: 0;
+  left: 11px; /* Adjust based on your icon size and margin */
+  border-left: 1px solid #888;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding-left: 10px; /* Adjust based on your icon size and margin */
+  margin-bottom: 10px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Align items to the bottom */
+  flex-direction: column;
+  margin-top: 5px;
+  color: #888;
+}
+
+.date,
+.author {
+  font-size: 12px;
+}
+
+.date {
+  order: 1; /* Adjust the order to swap positions */
+}
+
+.author {
+  order: 2;
+}
+
+.description {
+  margin-top: 5px;
+  font-weight: 100;
+}
+
+.horizontal-line {
+  margin-top: 10px;
+  border-top: 1px solid #888;
+}
+

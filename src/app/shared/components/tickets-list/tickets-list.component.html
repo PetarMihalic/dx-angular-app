@@ -1,32 +1,28 @@
 <div>
-    <dx-toolbar>
-        <dxi-item name="searchPanel" location="before"></dxi-item>
-        <dxi-item location="before">
-            <div *dxTemplate>
-                <div>Ticketsssssss</div>
-            </div>
-        </dxi-item>
-
-        <dxi-item location="before">
-            <div *dxTemplate xstyle="border:1px solid red;">
-            <dx-button icon="refresh" text="Show" (onClick)="onRefreshClick($event)" ></dx-button>
-            </div>
-        </dxi-item>
-        <dxi-item location="after">
-            <div *dxTemplate>
-                <dx-button icon="add" text="Add new" [routerLink]="['/pages/tickets']" [queryParams]="{action: 'add'}"></dx-button>
-            </div>
-        </dxi-item>
-    </dx-toolbar>
+    <dx-button icon="add" [routerLink]="['/pages/tickets']" [queryParams]="{action: 'add'}" style="float: inline-end;"></dx-button>
     <dx-list 
         [dataSource]="dataSource" 
-        [searchEnabled]="true" 
+        [searchEnabled]="true"
+        searchMode="contains"
         (onItemClick)="onItemClick($event)" 
+        [searchEditorOptions]="{
+            stylingMode: 'outlined',
+            width: '85%'
+        }"
         [indicateLoading]="true">
         <div *dxTemplate="let data of 'item'">
-            <div [ngClass]="{'ticket-list-item-high': data.priority == 'high'}">
-                {{ data.subject }}<br/>
-                Drugi red {{data.priority}}, {{data.description}}
+            <div class="itemHeader" [ngClass]="{'ticket-list-item-high-header': data.priority == 'high', 'ticket-list-item-not-high-header': data.priority != 'high'}">
+                <!--<div *ngIf="data.status == 'new'"></div>-->
+                <div class="dx-icon-email" [ngClass]="{'not-high-icon': data.priority != 'high'}"></div>
+                <div style="flex: 1; padding-left: 5px;">Support</div>
+                <div style="flex: 1;">New</div>
+                <div style="flex: 1;">{{data.priority}}</div>
+                <div>{{data.created | date:'dd.MM.yyyy HH:mm'}}</div>
+            </div>
+            <div class="itemBody" [ngClass]="{'ticket-list-item-high': data.priority == 'high'}">
+                {{data.contact_id}}
+                T{{data.id}} - {{data.subject}}<br/>
+                <div class="description">{{data.description}}</div>
             </div>
           </div>
     </dx-list>

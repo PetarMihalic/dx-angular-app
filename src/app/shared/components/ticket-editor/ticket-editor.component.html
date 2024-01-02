@@ -1,105 +1,199 @@
-<div *ngIf="formShow; else NoEntitySelected" style="padding: 10px;">
-    <div class="edit1">
-        <div class="title">{{formData.subject}}</div>
-        <div class="divider"></div>
-    </div>
-    <div class="edit2">
-        <div class="title">Members</div>
-        <div class="divider"></div>
-    </div>
-    <div class="edit3">
-
-    </div>
-    <div class="edit4">
-
-    </div>
+<div *ngIf="formShow; else NoEntitySelected">
     <form action="x" method="post" (submit)="onFormSubmit($event)">
         <dx-form id="form" [formData]="formData" [readOnly]="formReadOnly">
             <dxi-item itemType="group">
-                <dxi-item dataField="project_id" editorType="dxSelectBox" [editorOptions]="{ 
-                    dataSource:projectsStore, valueExpr:'id', displayExpr:'name', 
-                    searchEnabled:true, showDataBeforeSearch: true,
-                    validationMessageMode: 'always'
-                }"></dxi-item>
-                <dxi-item dataField="priority" editorType="dxSelectBox" [editorOptions]="{ 
-                    items: priorities, valueExpr:'key', displayExpr:'label', validationMessageMode: 'always'
-                }"></dxi-item>
-                <dxi-item dataField="subject" [editorOptions]="{validationMessageMode: 'always'}"></dxi-item>
-                <dxi-item dataField="description" editorType="dxTextArea"  [editorOptions]="{validationMessageMode: 'always', autoResizeEnabled: false, height: 200}"></dxi-item>
-                <dxi-item dataField="ticket_status_id" editorType="dxSelectBox" [editorOptions]="{
-                    dataSource: statusesStore, valueExpr:'id', displayExpr:'label', validationMessageMode: 'always'
-                }"></dxi-item>
-                <dxi-item dataField="requestor_contact_id" editorType="dxSelectBox" [editorOptions]="{
-                    dataSource: contactsStore, valueExpr:'id', displayExpr:getContactName, validationMessageMode: 'always'
-                }"></dxi-item>
+                <dx-button icon="overflow" style="float:inline-end"></dx-button>
+                <div class="title">{{formData.subject}}</div>
+                <div class="grid-container">
+                    <div>Created</div>
+                    <div>Open / SLA time</div>
+                    <div>Priority</div>  
+                    <div>Waiting for reply</div>
+                    <div>Total time worked</div>
+                    <div>{{formData.created | date:"dd.MM.yyyy. hh:mm:ss"}}</div>
+                    <div>31:24:34 48:00:00</div>
+                    <div><dx-select-box 
+                        [items]="priorities" 
+                        width="75"
+                        valueExpr="key" 
+                        displayExpr="label" 
+                        [value]="formData.priority"
+                        stylingMode="outlined"
+                        validationMessageMode="always"
+                        [dropDownOptions] = "{minWidth: 80}"
+                        ></dx-select-box></div>
+                    <div>02:24:34 04:00:00</div>
+                    <div>24:48:23</div>
+                </div>
+                <dx-accordion
+                    [dataSource]="accordionTitles"
+                    [animationDuration]="450"
+                    [multiple]="true"
+                    [collapsible]="true"
+                    [selectedItems]="accordionTitles"
+                    itemTemplate="item"
+                    itemTitleTemplate="title"
+                >
+                    <div *dxTemplate="let data of 'title'">
+                        <div>{{ data.title }}</div>
+                    </div>
+                    <div *dxTemplate="let data of 'item'">
+                        <div *ngIf="data.title === 'Members'">
+                            <dx-button icon="edit" style="float:inline-end"></dx-button>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Requestor:</div>
+                                <div class="dx-field-value-static">Contact One</div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Assigned to:</div>
+                                <div class="dx-field-value-static">Best Agent</div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Collaborators:</div>
+                                <div class="dx-field-value-static">Contact Five, Agent Seven, email@domain.com</div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Followers:</div>
+                                <div class="dx-field-value-static">Supervisor Eight, Contact Seven, info@domain.com</div>
+                            </div>
+                        </div>
+                        <div *ngIf="data.title === 'Info'" class="main-fields">
+                            <dx-select-box 
+                                label="Ticket type"
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                [items]="ticketTypes" 
+                                valueExpr="key" 
+                                displayExpr="label" 
+                                [value]="null"
+                                validationMessageMode="always">
+                            </dx-select-box>
+                            <dx-select-box 
+                                label="Subtype"
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                [items]="ticketSubtypes" 
+                                valueExpr="key" 
+                                displayExpr="label" 
+                                [value]="null"
+                                validationMessageMode="always">
+                            </dx-select-box>
+                            <dx-text-box
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="width: 100%; float: inline-start;"
+                                label="Subject"
+                            ></dx-text-box>
+                            <dx-text-area
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="width: 100%; float: inline-start;"
+                                label="Description"
+                                [value]="formData.description"
+                            ></dx-text-area>
+                            <dx-text-area
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="width: 100%; float: inline-start;"
+                                label="Solution"
+                            ></dx-text-area>
+                            <dx-select-box 
+                                label="Product category"
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                [items]="productCategories" 
+                                valueExpr="key" 
+                                displayExpr="label" 
+                                [value]="null"
+                                validationMessageMode="always">
+                            </dx-select-box>
+                            <dx-select-box 
+                                label="Product subcategory"
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                [items]="productSubategories" 
+                                valueExpr="key" 
+                                displayExpr="label" 
+                                [value]="null"
+                                validationMessageMode="always">
+                            </dx-select-box>
+                            <dx-text-box
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="width: 100%; float: inline-start;"
+                                label="Product name"
+                            ></dx-text-box>
+                        </div>
+                        <div *ngIf="data.title === 'Additional information'" class="additional-fields">
+                            <dx-text-box 
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="flex:1;"
+                                label="Product category"
+                            ></dx-text-box>
+                            <dx-text-box
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="flex:1;"
+                                label="Product subcategory"
+                            ></dx-text-box>
+                            <dx-text-box 
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="width: 100%; float: inline-start;"
+                                label="Product name"
+                            ></dx-text-box>
+                            <dx-text-box 
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="flex:1;"
+                                label="Product category"
+                            ></dx-text-box>
+                            <dx-text-box
+                                stylingMode="outlined"
+                                labelMode="outside"
+                                style="flex:1;"
+                                label="Product subcategory"
+                            ></dx-text-box>
+                        </div>
+                    </div>
+                </dx-accordion>
+            </dxi-item>
 
-                <!--
-                <dxi-item
-                    dataField="Position"
-                    editorType="dxSelectBox"
-                    [editorOptions]="{ items: positions, value: '' }"
-                ></dxi-item>
-                -->
-            </dxi-item>
-            
-            
-            
-            <dxi-item itemType="group" colCount="3" >
-                <dxi-item itemType="empty" [colSpan]="1"></dxi-item>
-				<dxi-item itemType="button" [buttonOptions]="{text:'OK', type:'success', useSubmitBehavior:true, width:120}" horizontalAlignment="right" width="120px"></dxi-item>
-                <dxi-item itemType="button" [buttonOptions]="{text:'Cancel', type:'normal', width:120, onClick: this.onCancel}" width="120px"></dxi-item>
-				<!--
-                    TODO https://supportcenter.devexpress.com/ticket/details/t845685/form-how-to-place-2-or-more-buttonitems-inline-and-either-all-left-or-all-right-aligned
-				<dxi-item itemType="button" [buttonOptions]="{text:'Cancel', type:'normal', width:120, onClick: onCancel }"></dxi-item>
-				-->
-				
+            <dxi-item itemType="group">
+                <div class="submit-section">
+                    <dx-select-box 
+                        label="Status"
+                        stylingMode="outlined"
+                        labelMode="outside"
+                        [items]="status" 
+                        valueExpr="key" 
+                        displayExpr="label" 
+                        [value]="status[0]"
+                        validationMessageMode="always"
+                        style="flex:1;">
+                    </dx-select-box>
+                    <dx-check-box
+                        [(value)]="checkBoxValue"
+                        (onValueChanged)="onCheckBoxClick()">
+                    </dx-check-box>
+                    <dx-date-box
+                        class="reminder"
+                        label="Reminder"
+                        [disabled]="reminderDisabled"
+                        stylingMode="outlined"
+                        labelMode="outside"
+                        type="datetime"
+                        displayFormat="dd.MM.yyyy HH:mm"
+                        style="flex:1;">
+                    </dx-date-box>
+                    <dx-button 
+                        text='Save / Close' 
+                        type='default'
+                        style="flex:none;">
+                    </dx-button>
+                </div>
 			</dxi-item>
-        <!--
-            <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
-                <dxi-item>
-                <div class="form-avatar"></div>
-                </dxi-item>
-                <dxi-item itemType="group" [colSpan]="3">
-                <dxi-item dataField="FirstName"></dxi-item>
-                <dxi-item dataField="LastName"></dxi-item>
-                <dxi-item
-                    dataField="BirthDate"
-                    editorType="dxDateBox"
-                    [editorOptions]="{ width: '100%' }"
-                ></dxi-item>
-                </dxi-item>
-            </dxi-item>
-            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
-                <dxi-item itemType="group">
-                <dxi-item dataField="Address"></dxi-item>
-                <dxi-item dataField="City"></dxi-item>
-                <dxi-item
-                    dataField="Position"
-                    editorType="dxSelectBox"
-                    [editorOptions]="{ items: positions, value: '' }"
-                ></dxi-item>
-                </dxi-item>
-                <dxi-item itemType="group">
-                <dxi-item
-                    dataField="State"
-                    editorType="dxSelectBox"
-                    [editorOptions]="{ items: states }"
-                ></dxi-item>
-                <dxi-item dataField="ZipCode"></dxi-item>
-                <dxi-item
-                    dataField="Mobile"
-                    [label]="{ text: 'Phone' }"
-                    [editorOptions]="{ mask: '+1 (000) 000-0000' }"
-                ></dxi-item>
-                </dxi-item>
-                <dxi-item
-                dataField="Notes"
-                [colSpan]="2"
-                editorType="dxTextArea"
-                [editorOptions]="{ height: 140 }"
-                ></dxi-item>
-            </dxi-item>
-        -->        
         </dx-form>
     </form>
 </div>

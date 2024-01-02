@@ -4,7 +4,9 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { DxDataGridModule, DxFormModule, DxButtonModule, DxLoadIndicatorModule, DxBoxModule, DxListModule, DxToolbarModule, DxTabPanelModule, DxLoadPanelModule, DxScrollViewModule, DxHtmlEditorModule, DxTextAreaModule, DxFileUploaderModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxButtonModule, DxLoadIndicatorModule, DxBoxModule, DxListModule, DxToolbarModule, 
+  DxTabPanelModule, DxLoadPanelModule, DxScrollViewModule, DxHtmlEditorModule, DxTextAreaModule, DxTextBoxModule, 
+  DxFileUploaderModule, DxAccordionModule, DxSelectBoxModule, DxTagBoxModule, DxDateBoxModule, DxCheckBoxModule } from 'devextreme-angular';
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -18,6 +20,7 @@ import { ContactInfoComponent } from './shared/components/contact-info/contact-i
 import { ContactHistoryComponent } from './shared/components/contact-history/contact-history.component';
 import { DatePipe, NgClass, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { AngularSplitModule } from 'angular-split';
+import { ContactDocumentsComponent } from './shared/components/contact-documents/contact-documents.component';
 
 const routes: Routes = [
   {
@@ -84,6 +87,7 @@ const routes: Routes = [
     DxTextAreaModule,
     DxLoadIndicatorModule, 
     DxBoxModule, 
+    DxTextBoxModule,
     DxListModule, 
     DxToolbarModule,
     DxTabPanelModule,
@@ -91,6 +95,11 @@ const routes: Routes = [
     DxScrollViewModule,
     DxHtmlEditorModule,
     DxFileUploaderModule,
+    DxAccordionModule,
+    DxSelectBoxModule,
+    DxTagBoxModule,
+    DxDateBoxModule,
+    DxCheckBoxModule,
     NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgClass,
     DatePipe,
     AngularSplitModule
@@ -110,7 +119,8 @@ const routes: Routes = [
     EmailEditorComponent,
     InternalNoteEditorComponent,
     ContactInfoComponent,
-    ContactHistoryComponent
+    ContactHistoryComponent,
+    ContactDocumentsComponent
   ]
 })
 export class AppRoutingModule { }

@@ -1,11 +1,75 @@
 .title {
-    font-size: 1em; // Adjust the font size as needed
-    text-align: left;
-    margin-bottom: 10px; // Adjust the margin as needed
-  }
+  font-size: 16px; // Adjust the font size as needed
+  text-align: left;
+  margin: 10px; // Adjust the margin as needed
+}
 
-  // Horizontal line styling
-  .divider {
-    border-top: 1px solid #ccc; // Adjust the color and thickness as needed
-    margin-bottom: 15px; // Adjust the margin as needed
-  }
+// Horizontal line styling
+.divider {
+  border-top: 1px solid #ccc; // Adjust the color and thickness as needed
+  margin-bottom: 15px; // Adjust the margin as needed
+}
+
+.naslov-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.column, .label, .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.label {
+  font-size: 12px; /* Adjust font size as needed */
+  margin-bottom: 5px;
+}
+
+.main-fields, .additional-fields{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0px 10px;
+  padding: 0px 10px 10px 10px;
+}
+
+.submit-section{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0px 10px;
+  padding: 0px 10px 10px 10px;
+  align-items: baseline;
+}
+
+.main-fields dx-select-box{
+  flex: 1;
+}
+
+.main-fields dx-text-area{
+  width: 100%;
+}
+
+.dx-field, .dx-field-label {
+  font-size: 12px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 0px 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.grid-container > div {
+  text-align: center;
+  margin: auto;
+  font-size: 12px;
+}
+
+.dx-field {
+  margin: 0px;
+}

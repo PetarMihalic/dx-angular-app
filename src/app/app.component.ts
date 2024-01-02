@@ -12,7 +12,11 @@ export class AppComponent  {
     return Object.keys(this.screen.sizes).filter(cl => this.screen.sizes[cl]).join(' ');
   }
 
-  constructor(private themeService: ThemeService, private authService: AuthService, private screen: ScreenService, public appInfo: AppInfoService) { }
+  constructor(
+    private themeService: ThemeService, 
+    private authService: AuthService, 
+    private screen: ScreenService, 
+    public appInfo: AppInfoService) { }
 
   isAuthenticated() {
     return this.authService.loggedIn;
@@ -22,3 +26,4 @@ export class AppComponent  {
     this.themeService.applyTheme();
   }
 }
+

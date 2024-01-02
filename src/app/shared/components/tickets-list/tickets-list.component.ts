@@ -20,6 +20,7 @@ export class TicketsListComponent {
 		private appInfoService: AppInfoService
 	) {
 		this.dataSource = crudService.getStore("Tickets");
+		console.log(this.dataSource);
 		this.appInfoService.messages.subscribe(msg => {
 			// TicketEditorComponent == TicketsListComponent
 			if(msg.sender == this.constructor.name.replace("sList", "Editor") && msg.message == "afterSave"){
@@ -37,5 +38,5 @@ export class TicketsListComponent {
 	 onItemClick(e: any){
 		this.router.navigate([], {relativeTo: this.route, queryParams: {action: 'edit', id: e.itemData.id}});
 	}
-
+	
 }
