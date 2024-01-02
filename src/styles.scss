@@ -117,7 +117,7 @@ app-ticket-editor .dx-tag-remove-button::before {
 }
 
 app-ticket-editor .dx-tagbox.dx-editor-outlined .dx-tag-container {
-  min-height: 33px;
+  min-height: 30px;
 }
 
 app-ticket-editor .dx-tag-content {
@@ -179,6 +179,20 @@ app-ticket-editor .dx-layout-manager .dx-field-item:not(.dx-first-row) {
 
 app-ticket-editor .dx-layout-manager .dx-field-item {
   padding-bottom: 0px;
+}
+
+app-ticket-editor .dx-tag-content {
+  font-size: 12px;
+}
+
+app-ticket-editor .dx-tagbox .dx-tag-container {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  gap: 4px;
+}
+
+app-ticket-editor .dx-tagbox.dx-editor-outlined .dx-tag-container {
+  padding-inline-start: 4px;
 }
 
 app-tickets-list .dx-texteditor.dx-editor-outlined .dx-placeholder::before {

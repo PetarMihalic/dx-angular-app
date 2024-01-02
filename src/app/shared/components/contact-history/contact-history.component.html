@@ -1,60 +1,66 @@
-<dx-accordion [collapsible]="true"> <!--[selectedItem]="null"-->
-    <dxi-item title="Contact history">
-        <dx-toolbar style="width: 50%; float: right;">
+<div style="padding-top: 5px; height: 100%;">
+        <dx-toolbar style="width: 100%; padding-left: 10px;">
+            <dxi-item 
+                widget="dxTextBox" 
+                location="before"
+                [options]="{
+                    stylingMode: 'outlined',
+                    placeholder: 'Search...',
+                    showClearButton: true
+                  }"
+            ></dxi-item>
+            <dxi-item  
+                widget="dxButton" 
+                location="before"
+                [options]="{
+                    icon: 'search'
+                }"
+            ></dxi-item>
             <dxi-item 
                 widget="dxSelectBox" 
-                locatoin="after"
+                location="after"
                 [options]="{
                     stylingMode: 'outlined'
                   }"
-            >
-            </dxi-item>
+            ></dxi-item>
             <dxi-item  
                 widget="dxButton" 
-                locatoin="after"
+                location="after"
                 [options]="{
                     icon: 'user'
                   }"
-            >
-            </dxi-item>
+            ></dxi-item>
             <dxi-item  
                 widget="dxButton" 
-                locatoin="after"
+                location="after"
                 [options]="{
                     icon: 'expand'
                   }"
-            >
-            </dxi-item>
+            ></dxi-item>
         </dx-toolbar>
-        <dx-list 
-        [dataSource]="dataSouce" 
-        [searchEnabled]="true"
-        searchExpr="description"
-        searchMode="contains"
-        [searchEditorOptions]="{
-            stylingMode: 'outlined',
-            width: '40%'
-        }"
-        [indicateLoading]="true">
-        <div *dxTemplate="let data of 'item'" style="font-size: 12px;">
-            <div class="custom-item">
-                <div class="icon-container">
-                  <div class="dx-icon dx-icon-{{data.icon}}" style="color: #03a9f4"></div>
-                  <div class="vertical-line"></div>
-                </div>
-                <div class="content-container">
-                    <div class="info-container">
-                        <div class="title">{{ data.title }}</div>
-                        <div class="meta-info">
-                            <div class="date">{{ data.dateTime }}</div>
-                            <div class="author">by {{ data.author }}</div>
-                        </div>
+        <dx-scroll-view>
+            <dx-list 
+            [dataSource]="dataSouce" 
+            [indicateLoading]="true">
+            <div *dxTemplate="let data of 'item'" style="font-size: 12px;">
+                <div class="custom-item">
+                    <div class="icon-container">
+                    <div class="dx-icon dx-icon-{{data.icon}}" style="color: #03a9f4"></div>
+                    <div class="vertical-line"></div>
                     </div>
-                  <div class="description">{{ data.description }}</div>
-                  <div class="horizontal-line"></div>
+                    <div class="content-container">
+                        <div class="info-container">
+                            <div class="title">{{ data.title }}</div>
+                            <div class="meta-info">
+                                <div class="date">{{ data.dateTime }}</div>
+                                <div class="author">by {{ data.author }}</div>
+                            </div>
+                        </div>
+                    <div class="description">{{ data.description }}</div>
+                    <div class="horizontal-line"></div>
+                    </div>
                 </div>
-              </div>
-        </div>
-    </dx-list>
-    </dxi-item>
-</dx-accordion>
+            </div>
+            </dx-list>
+        </dx-scroll-view>
+</div>

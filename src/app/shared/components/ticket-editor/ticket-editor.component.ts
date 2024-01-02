@@ -48,6 +48,17 @@ export class TicketEditorComponent extends EditorComponent{
 	checkBoxValue: boolean | null | undefined = false;
 	reminderDisabled: boolean = true;
 
+	onCustomItemCreating(args: any) {
+		this.contactsStore.push([{ type: "insert", key: "id", data: {id: args.text, type: "email" }}]);
+		const newValue = args.text;
+		console.log(newValue);
+	//	const isItemInDataSource = this.contactsStore.keyOf((item:any) => item === newValue);
+	//	if (!isItemInDataSource) {
+	//	  this.contactsStore.insert(newValue);
+	//	}
+		args.customItem = newValue;
+	  }
+
 	onCheckBoxClick(){
 		if(this.checkBoxValue) this.reminderDisabled = false;
 		else this.reminderDisabled = true;

@@ -104,8 +104,8 @@ export class EditorComponent {
 		try{
 			var action = this.backendControllerAction ?? this.formAction;
 			var url = `${environment.apiUrl}/${this.backendControllerName}/${action}`;
-			if(this.formEntityId != null)
-				url += `/${this.formEntityId}`;
+			if(this.urlEntityId != null)
+				url += `/${this.urlEntityId}`;
 			const result$ = this.http.post(url, this.formData, {withCredentials: true}).pipe(map((rsp: any) => {
 				return rsp;
 			}));

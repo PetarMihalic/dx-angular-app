@@ -12,6 +12,7 @@ import { DxListComponent } from 'devextreme-angular';
 export class TicketsListComponent {
 	@ViewChild(DxListComponent, {static: false}) list: DxListComponent | undefined;
 	dataSource: any;
+	itemSelected: any;
 
 	constructor(
 		private crudService: CrudService,
@@ -37,6 +38,7 @@ export class TicketsListComponent {
 
 	 onItemClick(e: any){
 		this.router.navigate([], {relativeTo: this.route, queryParams: {action: 'edit', id: e.itemData.id}});
+		this.itemSelected = e.itemData.id;
 	}
 	
 }

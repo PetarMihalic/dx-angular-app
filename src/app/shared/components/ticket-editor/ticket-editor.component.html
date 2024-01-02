@@ -17,7 +17,7 @@
                         width="75"
                         valueExpr="key" 
                         displayExpr="label" 
-                        [value]="formData.priority"
+                        [(value)]="formData.priority"
                         stylingMode="outlined"
                         validationMessageMode="always"
                         [dropDownOptions] = "{minWidth: 80}"
@@ -46,7 +46,7 @@
                                 labelMode="outside"
                                 valueExpr="id" 
                                 [displayExpr]="getFullName"
-                                [value]="formData.contact_id"
+                                [(value)]="formData.contact_id"
                                 validationMessageMode="always">
                             </dx-select-box>
                             <dx-select-box 
@@ -56,7 +56,7 @@
                                 labelMode="outside"
                                 valueExpr="id" 
                                 [displayExpr]="getFullName"
-                                [value]="formData.user_id"
+                                [(value)]="formData.user_id"
                                 validationMessageMode="always">
                             </dx-select-box>
                             <dx-tag-box 
@@ -66,17 +66,23 @@
                                 labelMode="outside"
                                 valueExpr="id" 
                                 [displayExpr]="getFullName"
-                                [value]="formData.contact_id"
+                                [acceptCustomValue]="true"
+                                [showSelectionControls]="true"
+                                applyValueMode="useButtons"
+                                (onCustomItemCreating)="onCustomItemCreating($event)"
                                 validationMessageMode="always">
                             </dx-tag-box>
                             <dx-tag-box 
                                 [dataSource]="usersStore"
-                                label="Asignee"
+                                label="Followers"
                                 stylingMode="outlined"
                                 labelMode="outside"
                                 valueExpr="id" 
                                 [displayExpr]="getFullName"
-                                [value]="formData.user_id"
+                                [acceptCustomValue]="true"
+                                [showSelectionControls]="true"
+                                applyValueMode="useButtons"
+                                (onCustomItemCreating)="onCustomItemCreating($event)"
                                 validationMessageMode="always">
                             </dx-tag-box>
                         </div>
@@ -88,7 +94,7 @@
                                 labelMode="outside"
                                 valueExpr="id" 
                                 displayExpr="name" 
-                                [value]="formData.project_id"
+                                [(value)]="formData.project_id"
                                 validationMessageMode="always">
                             </dx-select-box>
                             <dx-select-box 
@@ -106,14 +112,14 @@
                                 labelMode="outside"
                                 style="width: 100%; float: inline-start;"
                                 label="Subject"
-                                [value]="formData.subject"
+                                [(value)]="formData.subject"
                             ></dx-text-box>
                             <dx-text-area
                                 stylingMode="outlined"
                                 labelMode="outside"
                                 style="width: 100%; float: inline-start;"
                                 label="Description"
-                                [value]="formData.description"
+                                [(value)]="formData.description"
                             ></dx-text-area>
                             <dx-text-area
                                 stylingMode="outlined"
@@ -193,7 +199,7 @@
                         labelMode="outside"
                         valueExpr="id" 
                         displayExpr="label" 
-                        [value]="formData.ticket_status_id"
+                        [(value)]="formData.ticket_status_id"
                         validationMessageMode="always"
                         style="flex:1;">
                     </dx-select-box>
@@ -214,6 +220,7 @@
                     <dx-button 
                         text='Save / Close' 
                         type='default'
+                        [useSubmitBehavior]="true"
                         style="flex:none;">
                     </dx-button>
                 </div>

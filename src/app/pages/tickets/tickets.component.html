@@ -27,7 +27,7 @@
 							<dxi-item title="Phone" icon="tel">
 								Phone
 							</dxi-item>
-							<dxi-item title="SMS" icon="square">
+							<dxi-item title="SMS" icon="comment">
 								Slanje SMS-a....
 							</dxi-item>
 							<dxi-item title="Note" icon="isnotblank" badge="new">
@@ -42,16 +42,29 @@
 		<as-split-area [size]="25" *ngIf="showTicketDetails">
 			<as-split direction="vertical" gutterSize="5">
 				<!--PRVA KOMPONENTA-->
-				<as-split-area [size]="41">
-					<app-contact-info></app-contact-info>
+				<as-split-area [size]="50">
+					<dx-tab-panel [selectedIndex]="0" [iconPosition]="'start'" stylingMode="secondary">
+						<dxi-item title="Contact info" icon="info">
+							<app-contact-info></app-contact-info>
+						</dxi-item>
+						<dxi-item title="Contact documents" icon="doc">
+							<app-contact-documents></app-contact-documents>
+						</dxi-item>
+						<dxi-item title="Contact history"  icon="clock">
+							<app-contact-history></app-contact-history>
+						</dxi-item>
+					</dx-tab-panel>
 				</as-split-area>
 				<!--DRUGA KOMPONENTA-->
-				<as-split-area [size]="12">
-					<app-contact-documents></app-contact-documents>
-				</as-split-area>
-				<!--TRECA KOMPONENTA-->
-				<as-split-area [size]="47">
-					<app-contact-history></app-contact-history>
+				<as-split-area [size]="50">
+					<dx-tab-panel [selectedIndex]="0" [iconPosition]="'start'" stylingMode="secondary">
+						<dxi-item title="Canned responses" icon="tips">
+							Canned responses lista...
+						</dxi-item>
+						<dxi-item title="Knowledge base" icon="bulletlist">
+							Knowledge base lista...
+						</dxi-item>
+					</dx-tab-panel>
 				</as-split-area>
 			</as-split>
 		</as-split-area>
