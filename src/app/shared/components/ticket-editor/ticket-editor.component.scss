@@ -29,7 +29,7 @@
   margin-bottom: 5px;
 }
 
-.main-fields, .additional-fields{
+.members, .main-fields, .additional-fields{
   display: flex; 
   flex-wrap: wrap; 
   gap: 0px 10px;
@@ -45,6 +45,10 @@
 }
 
 .main-fields dx-select-box{
+  flex: 1;
+}
+
+.members dx-select-box{
   flex: 1;
 }
 

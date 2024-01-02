@@ -17,12 +17,6 @@ export class TicketEditorComponent extends EditorComponent{
 		{key: 'normal', label: 'Normal'},
 		{key: 'low', label: 'Low'},
 	];
-	ticketTypes: object[] = [
-		{key: 'sales', label: 'Type 1'},
-		{key: 'high', label: 'Type 2'},
-		{key: 'normal', label: 'Type 3'},
-		{key: 'low', label: 'Type 4'},
-	];
 	ticketSubtypes: object[] = [
 		{key: 'newService', label: 'Subtype 1'},
 		{key: 'high', label: 'Subtype 2'},
@@ -41,17 +35,10 @@ export class TicketEditorComponent extends EditorComponent{
 		{key: 'normal', label: 'Subcategory 3'},
 		{key: 'low', label: 'Subcategory 4'},
 	];
-	status: object[] = [
-		{key: 'new', label: 'New'},
-		{key: 'pending', label: 'Pending'},
-		{key: 'customer', label: 'Waiting for customer'},
-		{key: 'colaborator', label: 'Waiting for colaborator'},
-		{key: 'finished', label: 'Finished'},
-		{key: 'closed', label: 'Closed'}
-	];
 	projectsStore: CustomStore = this.crudService.getStore("Projects");
 	statusesStore: CustomStore = this.crudService.getStore("TicketStatuses");
 	contactsStore: CustomStore = this.crudService.getStore("Contacts");
+	usersStore: CustomStore = this.crudService.getStore("Users");
 
 	accordionTitles: any[] = [
 		{title: "Members"},
@@ -64,9 +51,10 @@ export class TicketEditorComponent extends EditorComponent{
 	onCheckBoxClick(){
 		if(this.checkBoxValue) this.reminderDisabled = false;
 		else this.reminderDisabled = true;
+		console.log(this.projectsStore);
 	}
 
-	getContactName(item: any): string{
+	getFullName(item: any): string{
 		return item && item.first_name + ' ' + item.last_name;
 	}
 
