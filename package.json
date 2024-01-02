@@ -25,6 +25,7 @@
     "devextreme": "23.2.3",
     "devextreme-angular": "23.2.3",
     "devextreme-aspnet-data-nojquery": "^3.0.0",
+    "devextreme-dist": "23.2.3",
     "devextreme-schematics": "^1.6.1",
     "ngx-cookie-service": "^16.0.1",
     "rxjs": "~7.8.0",

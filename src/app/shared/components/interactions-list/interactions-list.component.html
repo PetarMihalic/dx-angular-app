@@ -30,7 +30,7 @@ Custom data source s websocketom i updateom (remote operations)<br/>
 			</div>
 		</dxi-item>
 	</dx-toolbar>
-	<dx-list [dataSource]="dataSource" [searchEnabled]="true" [height]="385" (onItemClick)="onItemClick($event)" [indicateLoading]="true">
+	<dx-list [dataSource]="dataSource" [searchEnabled]="true" (onItemClick)="onItemClick($event)" [indicateLoading]="true">
 		<div *dxTemplate="let data of 'item'" [ngSwitch]="data.entity">
 			<div *ngSwitchCase="'AppModelEntityTicket'">
 				{{ data.created | date:'dd.MM.yyyy HH:mm'}}<br/>

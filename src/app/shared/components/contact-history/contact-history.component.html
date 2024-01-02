@@ -1,8 +1,35 @@
 <dx-accordion [collapsible]="true"> <!--[selectedItem]="null"-->
     <dxi-item title="Contact history">
+        <dx-toolbar style="width: 50%; float: right;">
+            <dxi-item 
+                widget="dxSelectBox" 
+                locatoin="after"
+                [options]="{
+                    stylingMode: 'outlined'
+                  }"
+            >
+            </dxi-item>
+            <dxi-item  
+                widget="dxButton" 
+                locatoin="after"
+                [options]="{
+                    icon: 'user'
+                  }"
+            >
+            </dxi-item>
+            <dxi-item  
+                widget="dxButton" 
+                locatoin="after"
+                [options]="{
+                    icon: 'expand'
+                  }"
+            >
+            </dxi-item>
+        </dx-toolbar>
         <dx-list 
         [dataSource]="dataSouce" 
         [searchEnabled]="true"
+        searchExpr="description"
         searchMode="contains"
         [searchEditorOptions]="{
             stylingMode: 'outlined',

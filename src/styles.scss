@@ -249,8 +249,17 @@ app-contact-history .dx-list-item-content {
   padding: 10px 10px 0px;
 }
 
-app-contact-history .dx-list-item:last-of-type > .vertical-line {
+app-contact-history .dx-list-item:last-of-type .vertical-line {
   border-left: 0px solid #888;
+}
+
+app-contact-history .dx-list-item:last-of-type .horizontal-line {
+  margin-top: 0px;
+  border-top: 0px solid #888;
+}
+
+app-email-editor .dx-toolbar.dx-toolbar-multiline .dx-toolbar-item {
+  height: 34px;
 }
 
 

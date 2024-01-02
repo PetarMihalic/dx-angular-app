@@ -20,11 +20,14 @@
 				<!--DRUGA KOMPONENTA-->
 				<as-split-area [size]="40">
 					<div>
-						<dx-tab-panel [selectedIndex]="0">
+						<dx-tab-panel [selectedIndex]="0" [iconPosition]="'start'" stylingMode="secondary">
 							<dxi-item title="E-mail" icon="email">
 								<app-email-editor></app-email-editor>
 							</dxi-item>
 							<dxi-item title="Phone" icon="tel">
+								Phone
+							</dxi-item>
+							<dxi-item title="SMS" icon="square">
 								Slanje SMS-a....
 							</dxi-item>
 							<dxi-item title="Note" icon="isnotblank" badge="new">
