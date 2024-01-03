@@ -13,6 +13,11 @@
     </dxi-item>
     <dxi-item
       location="before"
+      *ngIf="title">
+      <img src="../../../../assets/icons/logo.png" alt="logo" width="30" height="30" style="margin-left: 5px;"/>
+    </dxi-item>
+    <dxi-item
+      location="before"
       cssClass="header-title"
       *ngIf="title"
       [text]="title">

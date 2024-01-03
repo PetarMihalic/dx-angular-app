@@ -8,7 +8,7 @@ export class AppInfoService {
   constructor() {}
 
   public get title() {
-    return 'DevExtreme Angular Tickets App';
+    return 'CALLIA CONTACT';
   }
 
   public get currentYear() {

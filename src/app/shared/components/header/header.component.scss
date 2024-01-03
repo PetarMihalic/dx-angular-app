@@ -39,3 +39,8 @@
     padding: 3px;
   }
 }
+
+::ng-deep .dx-toolbar .dx-toolbar-label {
+  font-size: 16px;
+  font-weight: 300;
+}
