@@ -3,6 +3,7 @@ import { CrudService } from '../../services/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppInfoService } from '../../services';
 import { DxListComponent } from 'devextreme-angular';
+import notify from 'devextreme/ui/notify';
 
 @Component({
 	selector: 'app-tickets-list',
@@ -13,6 +14,7 @@ export class TicketsListComponent {
 	@ViewChild(DxListComponent, {static: false}) list: DxListComponent | undefined;
 	dataSource: any;
 	itemSelected: any;
+	sSearch: string = "";
 
 	constructor(
 		private crudService: CrudService,
@@ -39,6 +41,10 @@ export class TicketsListComponent {
 	 onItemClick(e: any){
 		this.router.navigate([], {relativeTo: this.route, queryParams: {action: 'edit', id: e.itemData.id}});
 		this.itemSelected = e.itemData.id;
+	}
+
+	searchTickets(){
+		this.dataSource = this.crudService.getStore("Tickets", this.sSearch);
 	}
 	
 }

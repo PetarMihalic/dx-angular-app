@@ -1,11 +1,17 @@
-<div *ngIf="formShow; else NoEntitySelected" class="content-block dx-card responsive-paddings">
+<div *ngIf="formShow; else NoEntitySelected" class="content-block">
 	<form action="x" method="post" (submit)="onFormSubmit($event)">
 		<dx-form [formData]="formData">
-			<dxi-item dataField="content" editorType="dxTextArea" [editorOptions]="{ height: 140 }"></dxi-item>
-
+			<dxi-item 
+				dataField="content" 
+				editorType="dxTextArea" 
+				stylingMode="outlined"
+				[editorOptions]="{ 
+					height: 140 
+				}"
+			></dxi-item>
 			<dxi-item itemType="group" colCount="3" >
 					<dxi-item itemType="empty" [colSpan]="1"></dxi-item>
-					<dxi-item itemType="button" [buttonOptions]="{text:'OK', type:'success', useSubmitBehavior:true, width:120}" horizontalAlignment="right"></dxi-item>
+					<dxi-item itemType="button" [buttonOptions]="{text:'OK', type:'default', useSubmitBehavior:true, width:120}" horizontalAlignment="right"></dxi-item>
 					<!--
 					<dxi-item itemType="button" [buttonOptions]="{text:'Cancel', type:'normal', width:120, onClick: onCancel }"></dxi-item>
 					-->

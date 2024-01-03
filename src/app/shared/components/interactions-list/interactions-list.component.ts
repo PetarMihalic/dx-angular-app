@@ -21,7 +21,6 @@ export class InteractionsListComponent {
 		private router: Router,
 		private appInfoService: AppInfoService
 	) {
-		this.dataSource = crudService.getStore("Audits");
 		console.log(this.dataSource);
 		this.appInfoService.messages.subscribe(msg => {
 			if(msg.sender == "TicketEditorComponent" && msg.message == "afterSave"){
@@ -30,17 +29,18 @@ export class InteractionsListComponent {
 				//this.list?.instance.getDataSource().reload();
 			} 
 		});
-		/*this.route.queryParams.subscribe(params => {
+		this.route.queryParams.subscribe(params => {
 			//this.messageId = params['messageId'];
 			this.ticketId = params['id'];
-			this.list?.instance.reload();
+			console.log("tiket ajdi: ", this.ticketId);
 			//TODO apply messageId & ticketId to store
 			if(this.ticketId){
 				this.crudService.read('audits', this.ticketId).then((data: any) => {
 					this.dataSource = data;
 				});
+				this.list?.instance.reload();
 			}
-		});*/
+		});
 		
 	 }
 

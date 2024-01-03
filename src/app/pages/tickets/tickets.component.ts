@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent {
-	public showTicketDetails: boolean = false;
+	public editTicket: boolean = false;
+  public addTicket: boolean = false;
 
   formatMessage = formatMessage;
   constructor(
@@ -27,12 +28,18 @@ export class TicketsComponent {
       if(event instanceof NavigationEnd) {
         console.log(event.url)
         if(event.url.includes("action=edit")){
-          this.showTicketDetails = true;
+          this.editTicket = true;
+          this.addTicket = false;
+        }else if(event.url.includes("action=add")){
+          this.addTicket = true;
+          this.editTicket = false;
         }
         else{
-          this.showTicketDetails = false;
+          this.addTicket = false;
+          this.editTicket = false;
         }
-        console.log("Prikaz detalja ticketa: "+this.showTicketDetails)
+        console.log("Dodavnje novog ticketa: "+this.addTicket);
+        console.log("Prikaz detalja ticketa: "+this.editTicket);
       }
     });
 	}

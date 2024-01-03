@@ -9,7 +9,7 @@ export class CrudService{
 
 	constructor(private http: HttpClient){}
 
-	async readAll(controller: string, loadOptions: any){
+	async readAll(controller: string, loadOptions: any, sSearch?: string){
 		console.log(controller, loadOptions);
 		//Grid sometimes sends empty {} for loadOptions, skip loading in that case
 		//if(loadOptions.take === undefined)
@@ -21,7 +21,8 @@ export class CrudService{
 					limit: loadOptions.take ?? 20, 
 					page: loadOptions.skip / loadOptions.take + 1,
 					sort: 'id',
-					direction: 'asc'
+					direction: 'asc',
+					sSearch: sSearch ?? ''
 				},
 				withCredentials: true //needed to force angular send cookie auth, move tthis to interceptor
 			};
@@ -83,10 +84,10 @@ export class CrudService{
 		}
 	}
 
-	getStore(controller: string): CustomStore{
+	getStore(controller: string, sSearch?: string): CustomStore{
 		return new CustomStore({
 			key: 'id',
-			load: (loadOptions) => this.readAll(controller, loadOptions),
+			load: (loadOptions) => this.readAll(controller, loadOptions, sSearch),
 			byKey: (key) => {
 			  return this.read(controller, key);
 			},

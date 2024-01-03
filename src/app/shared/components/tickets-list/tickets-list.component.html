@@ -1,14 +1,58 @@
-<div>
-    <dx-button icon="add" [routerLink]="['/pages/tickets']" [queryParams]="{action: 'add'}" style="float: inline-end;"></dx-button>
+<div style="height: calc(100vh - 131px);">
+    <dx-toolbar style="padding: 0px 10px;">
+        <dxi-item location="before">
+            <dx-text-box
+                [(value)]="sSearch"
+                placeholder="Search..."
+                [showClearButton]="true"
+                stylingMode="outlined"
+                width="300"
+            ></dx-text-box>
+        </dxi-item>
+        <dxi-item location="before" >
+            <dx-button 
+                icon="search"
+                (onClick)="searchTickets()"
+                stylingMode="outlined"
+                style="border-radius: 20px;"
+            ></dx-button>
+        </dxi-item>
+        <dxi-item 
+            location="after" 
+            widget="dxButton"
+            locateInMenu="always"
+            [options]="{
+                icon: 'user',
+                text: 'Profile'
+            }"
+        >
+        </dxi-item>
+        <dxi-item 
+            location="after" 
+            widget="dxButton"
+            locateInMenu="always"
+            [options]="{
+                icon: 'preferences',
+                text: 'Settings'
+                }"
+        >
+        </dxi-item>
+        <dxi-item location="after" >
+            <dx-button 
+                icon="add" 
+                text="Add new"
+                [routerLink]="['/pages/tickets']" 
+                [queryParams]="{action: 'add'}" 
+                stylingMode="outlined"
+                type="default"
+                style="border-radius: 20px;"
+            ></dx-button>
+        </dxi-item>
+        
+    </dx-toolbar>
     <dx-list 
         [dataSource]="dataSource" 
-        [searchEnabled]="true"
-        searchMode="contains"
         (onItemClick)="onItemClick($event)" 
-        [searchEditorOptions]="{
-            stylingMode: 'outlined',
-            width: '85%'
-        }"
         [indicateLoading]="true">
         <div *dxTemplate="let data of 'item'" [ngClass]="{'selected': data.id == itemSelected && data.priority != 'high', 'selected-high': data.id == itemSelected && data.priority == 'high'}">
             <div class="itemHeader" [ngClass]="{'ticket-list-item-high-header': data.priority == 'high', 'ticket-list-item-not-high-header': data.priority != 'high'}">

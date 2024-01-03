@@ -62,7 +62,8 @@ export class EditorComponent {
 				case 'add':
 					this.formShow = !this.isChildEditor;
 					this.formReadOnly = false;
-					this.form?.instance.resetValues();
+					this.form?.instance.reset();
+					this.formData = {};
 					break;
 				case 'view':
 					this.formShow = true;

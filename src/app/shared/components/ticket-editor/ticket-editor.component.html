@@ -3,7 +3,7 @@
         <dx-form id="form" [formData]="formData" [readOnly]="formReadOnly">
             <dxi-item itemType="group">
                 <dx-button icon="overflow" style="float:inline-end"></dx-button>
-                <div class="title">{{formData.subject}}</div>
+                <div class="title">{{formData.subject || "New ticket"}}</div>
                 <div class="grid-container">
                     <div>Created</div>
                     <div>Open / SLA time</div>
@@ -127,6 +127,8 @@
                                 style="width: 100%; float: inline-start;"
                                 label="Solution"
                             ></dx-text-area>
+                        </div>
+                        <div *ngIf="data.title === 'Additional information'" class="additional-fields">
                             <dx-select-box 
                                 label="Product category"
                                 stylingMode="outlined"
@@ -152,38 +154,6 @@
                                 labelMode="outside"
                                 style="width: 100%; float: inline-start;"
                                 label="Product name"
-                            ></dx-text-box>
-                        </div>
-                        <div *ngIf="data.title === 'Additional information'" class="additional-fields">
-                            <dx-text-box 
-                                stylingMode="outlined"
-                                labelMode="outside"
-                                style="flex:1;"
-                                label="Product category"
-                            ></dx-text-box>
-                            <dx-text-box
-                                stylingMode="outlined"
-                                labelMode="outside"
-                                style="flex:1;"
-                                label="Product subcategory"
-                            ></dx-text-box>
-                            <dx-text-box 
-                                stylingMode="outlined"
-                                labelMode="outside"
-                                style="width: 100%; float: inline-start;"
-                                label="Product name"
-                            ></dx-text-box>
-                            <dx-text-box 
-                                stylingMode="outlined"
-                                labelMode="outside"
-                                style="flex:1;"
-                                label="Product category"
-                            ></dx-text-box>
-                            <dx-text-box
-                                stylingMode="outlined"
-                                labelMode="outside"
-                                style="flex:1;"
-                                label="Product subcategory"
                             ></dx-text-box>
                         </div>
                     </div>

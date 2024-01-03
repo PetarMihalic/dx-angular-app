@@ -196,19 +196,11 @@ app-ticket-editor .dx-tagbox.dx-editor-outlined .dx-tag-container {
 }
 
 app-tickets-list .dx-texteditor.dx-editor-outlined .dx-placeholder::before {
-  padding: 8px 40px 8px;
+  padding: 11px 16px 11px;
 }
 
 app-tickets-list .dx-texteditor.dx-editor-outlined .dx-texteditor-input {
-  padding: 8px 10px 8px 40px;
-}
-
-app-tickets-list .dx-searchbox.dx-editor-outlined .dx-icon-search {
-  width: 40px;
-  padding: 12px;
-  margin-top: -25px;
-  padding-inline-start: 0px;
-  padding-inline-end: 0px;
+  padding: 11px 10px 11px 16px;
 }
 
 app-tickets-list .dx-texteditor.dx-editor-outlined {
@@ -220,11 +212,6 @@ app-tickets-list .dx-list-item-content {
   padding: 0px;
 }
 
-app-tickets-list .dx-list-search {
-  padding-top: 4px;
-  margin: 10px;
-}
-
 app-tickets-list .dx-list-item:last-of-type {
   border-bottom: 1px solid #171518;
   margin-bottom: 0px;
@@ -233,6 +220,10 @@ app-tickets-list .dx-list-item:last-of-type {
 app-tickets-list .dx-list-item:first-of-type {
   border-top: none;
   margin-top: 0px;
+}
+
+app-tickets-list .dx-toolbar .dx-toolbar-items-container {
+  height: 46px;
 }
 
 app-side-nav-outer-toolbar .dx-treeview-item .dx-treeview-item-content {

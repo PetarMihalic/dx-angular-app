@@ -8,7 +8,9 @@ import { EditorComponent } from '../editor-component/editor.component';
 })
 export class EmailEditorComponent extends EditorComponent{
 	override backendControllerName: string = 'Tickets';
-	override formAction: string = 'replyViaEmail';
+	override backendControllerAction: string = 'replyViaEmail';
+	protected override isChildEditor: boolean = true;
+	protected override mapUrlEntityIdToFormField: string = 'ticket_id';
 
 	getFileUploadUrl(): string {
 		let url = "http://localhost:58765//Files/upload";
