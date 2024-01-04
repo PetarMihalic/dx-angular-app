@@ -3,6 +3,7 @@ import { DxTreeViewModule, DxTreeViewComponent, DxTreeViewTypes } from 'devextre
 import { navigation } from '../../../app-navigation';
 import { formatMessage } from 'devextreme/localization';
 import { CommonModule } from '@angular/common';
+import packageInfo from '../../../../../package.json';
 
 import * as events from 'devextreme/events';
 
@@ -14,7 +15,7 @@ import * as events from 'devextreme/events';
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   @ViewChild(DxTreeViewComponent, { static: true })
   menu!: DxTreeViewComponent;
-
+  version: string = packageInfo.version;
   @Output()
   selectedItemChanged = new EventEmitter<DxTreeViewTypes.ItemClickEvent>();
 

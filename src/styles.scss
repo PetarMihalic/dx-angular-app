@@ -267,5 +267,21 @@ app-email-editor .dx-toolbar.dx-toolbar-multiline .dx-toolbar-item {
   height: 34px;
 }
 
+app-tickets .communications .dx-icon-email:before {
+  color: #e45345;
+}
+
+app-tickets .communications .dx-icon-tel:before {
+  color: #03a9f4;
+}
+
+app-tickets .communications .dx-icon-comment:before {
+  color: #c828d6;
+}
+
+app-tickets .communications .dx-icon-description:before {
+  color: #f3e62f;
+}
+
 
 

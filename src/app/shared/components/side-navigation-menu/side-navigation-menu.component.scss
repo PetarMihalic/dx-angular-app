@@ -9,7 +9,6 @@
   width: 165px !important;
 
   .menu-container {
-    min-height: 100%;
     display: flex;
     flex: 1;
 
@@ -86,6 +85,10 @@
       }
     }
     // ##
+  }
+  .info-container{
+    text-align: center;
+    padding-bottom: 5px;
   }
 }
 
